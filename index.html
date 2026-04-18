@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1f6fd6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+<title>임진왜란을 극복하다 | 디지털 학습자료</title>
+<!-- Cross-platform package: host this folder on any static web server for best results on iPad/iPhone/Android. --><style>
+
+  :root {
+    --bg: #f3f6fb;
+    --bg-deep: #e8eef9;
+    --surface: #ffffff;
+    --surface-strong: #fdfefe;
+    --surface-soft: #f6f8fc;
+    --border: #d8e0ee;
+    --border-strong: #b8c7de;
+    --text: #101828;
+    --text-sub: #475467;
+    --text-mute: #667085;
+    --accent: #1f6fd6;
+    --accent-dark: #144f9b;
+    --accent-soft: #eef5ff;
+    --accent-deep: #122a55;
+    --route-accent: #c8342a;
+    --route-accent-dark: #9a1a12;
+    --route-accent-soft: #fef2f0;
+    --route-accent-line: rgba(200, 52, 42, 0.16);
+    --success: #2d7a4f;
+    --success-soft: #e8f5ed;
+    --shadow-sm: 0 6px 18px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 16px 36px rgba(16, 24, 40, 0.08), 0 6px 14px rgba(16, 24, 40, 0.05);
+    --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.16), 0 10px 24px rgba(15, 23, 42, 0.10);
+    --shadow-blue: 0 18px 44px rgba(31, 111, 214, 0.14);
+    --radius: 26px;
+    --radius-md: 20px;
+    --radius-sm: 999px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body, button, input, textarea, select {
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+.btn,
+.hotspot,
+.figure-zone,
+.dongnae-zone,
+.popup-close,
+.zoom-close-btn,
+.q-option {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(31, 111, 214, 0.10), transparent 24%),
+      radial-gradient(circle at 88% 14%, rgba(200, 52, 42, 0.06), transparent 18%),
+      linear-gradient(180deg, #f7f9fd 0%, var(--bg) 38%, var(--bg-deep) 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 20px 88px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    border-radius: 999px;
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::before {
+    width: 220px;
+    height: 220px;
+    top: 72px;
+    right: -60px;
+    background: rgba(31, 111, 214, 0.10);
+  }
+  body::after {
+    width: 180px;
+    height: 180px;
+    bottom: 84px;
+    left: -40px;
+    background: rgba(200, 52, 42, 0.06);
+  }
+
+  /* ===== 레이아웃 ===== */
+  .layout-shell {
+    max-width: 1420px;
+    margin: 0 auto;
+  }
+  .content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 348px;
+    gap: 24px;
+    align-items: start;
+  }
+  .main-column {
+    min-width: 0;
+  }
+  .side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: sticky;
+    top: 24px;
+  }
+
+  /* ===== 상단 헤더 바 ===== */
+  .header {
+    position: relative;
+    max-width: none;
+    margin: 0 0 18px;
+    padding: 34px 38px 36px;
+    background:
+      linear-gradient(135deg, #15325f 0%, #214d91 54%, #2f75d8 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    box-shadow: var(--shadow-lg), var(--shadow-blue);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 84% 20%, rgba(255,255,255,0.18), transparent 18%),
+      linear-gradient(90deg, rgba(255,255,255,0.09) 0 1px, transparent 1px 100%),
+      linear-gradient(180deg, rgba(255,255,255,0.07) 0 1px, transparent 1px 100%);
+    background-size: auto, 56px 100%, 100% 56px;
+    opacity: 0.35;
+    z-index: -1;
+  }
+  .header::after {
+    content: none;
+  }
+  .header-title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 720px;
+  }
+  .header-chapter {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .header-main {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    padding-bottom: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.055em;
+    line-height: 1.06;
+    text-wrap: balance;
+    text-shadow: 0 10px 28px rgba(7, 20, 46, 0.22);
+  }
+  .header-main::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent) 0%, #69a8ff 100%);
+    box-shadow: 0 0 20px rgba(31, 111, 214, 0.28);
+  }
+
+  /* ===== 침입 경로 카테고리 ===== */
+  .phase-panel {
+    max-width: none;
+    margin: 0;
+    padding: 22px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fffaf9 100%);
+    border: 1px solid #efcfc9;
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--route-accent) 0%, #ef776e 100%);
+  }
+  .phase-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    margin-bottom: 14px;
+  }
+  .phase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: var(--route-accent-soft);
+    color: var(--route-accent-dark);
+    border: 1px solid #f1c8c2;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+  .phase-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--route-accent);
+    box-shadow: 0 0 0 5px rgba(200, 52, 42, 0.12);
+  }
+  .phase-description {
+    font-size: 18px;
+    color: #7c2118;
+    font-weight: 800;
+    line-height: 1.65;
+    letter-spacing: -0.025em;
+  }
+  .controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .controls-label {
+    width: 100%;
+    font-size: 12px;
+    color: #8b2a20;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-right: 0;
+    margin-bottom: 2px;
+  }
+  .btn {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 11px 16px;
+    background: rgba(255,255,255,0.84);
+    color: #63231c;
+    border: 1px solid #f0d8d3;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.01em;
+    box-shadow: 0 10px 24px rgba(200, 52, 42, 0.06);
+  }
+  .btn:hover {
+    border-color: var(--route-accent);
+    background: #fff7f5;
+    color: var(--route-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(200, 52, 42, 0.12);
+  }
+  .btn.active {
+    background: linear-gradient(135deg, var(--route-accent) 0%, #de5247 100%);
+    border-color: var(--route-accent);
+    color: #fff;
+    box-shadow: 0 14px 28px rgba(200, 52, 42, 0.22);
+  }
+  .btn.active:hover {
+    background: linear-gradient(135deg, var(--route-accent-dark) 0%, #bf2f24 100%);
+    border-color: var(--route-accent-dark);
+  }
+  .btn .btn-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.82;
+  }
+
+  /* ===== 안내 배너 ===== */
+  .guide {
+    max-width: none;
+    margin: 0;
+    padding: 24px 24px 24px 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, #f7f8fa 100%);
+    border: 1px solid #d8dbe2;
+    border-radius: 24px;
+    color: #343438;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .guide::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: linear-gradient(180deg, #7b8088 0%, #babec6 100%);
+  }
+  .guide-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(180deg, #545961 0%, #717680 100%);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    margin-top: 2px;
+    box-shadow: 0 10px 20px rgba(84, 89, 97, 0.18);
+  }
+  .guide-content {
+    flex: 1;
+  }
+  .guide-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #2f3439;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .guide-list {
+    list-style: none;
+    display: grid;
+    gap: 11px;
+    padding: 0;
+    margin: 0;
+  }
+  .guide-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 1.72;
+    color: #4c5055;
+    word-break: keep-all;
+  }
+  .guide-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #7b8088;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .guide strong {
+    color: #262b30;
+    font-weight: 800;
+  }
+
+  /* ===== 원본 PDF 페이지 ===== */
+  .page-container {
+    max-width: none;
+    margin: 0;
+    background: rgba(255,255,255,0.98);
+    border: 1px solid rgba(184, 199, 222, 0.75);
+    border-radius: 28px;
+    box-shadow: var(--shadow-lg), var(--shadow-blue);
+    overflow: hidden;
+    position: relative;
+  }
+  .page-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+  .page-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1500 / 1909;
+    background: linear-gradient(180deg, #fbfcff 0%, #f4f7fb 100%);
+  }
+  .page-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    display: block;
+  }
+  .page-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  /* ===== 지도 핫스팟 ===== */
+  .hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+  }
+  .hotspot .dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #df4d42 0%, var(--route-accent) 100%);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px rgba(200, 52, 42, 0.92), 0 10px 22px rgba(200, 52, 42, 0.24);
+    transition: all 0.2s ease;
+  }
+  .hotspot.major .dot {
+    width: 19px;
+    height: 19px;
+  }
+  .hotspot.major::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--route-accent);
+    opacity: 0.30;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes ping {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.35; }
+    75%, 100% { transform: translate(-50%, -50%) scale(3.0); opacity: 0; }
+  }
+  .hotspot:hover .dot {
+    transform: scale(1.22);
+    box-shadow: 0 0 0 4px var(--route-accent), 0 14px 26px rgba(200, 52, 42, 0.30);
+  }
+
+  /* ===== 인물 이름 강조 ===== */
+  .figure-zone {
+    position: absolute;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200, 52, 42, 0.16);
+    backdrop-filter: blur(1px);
+  }
+  .figure-zone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(200, 52, 42, 0.40);
+    border: 1px solid rgba(200, 52, 42, 0.65);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
+  }
+  .figure-zone:hover::before {
+    background: rgba(200, 52, 42, 0.55);
+    border-color: rgba(154, 26, 18, 0.82);
+    box-shadow: 0 0 0 4px rgba(200, 52, 42, 0.12);
+  }
+  .figure-zone::after {
+    content: '인물 카드';
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(162, 30, 20, 0.95) 0%, rgba(133, 19, 12, 0.96) 100%);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+    opacity: 0.96;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 8px 18px rgba(154, 26, 18, 0.20);
+  }
+  .figure-zone:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-1px);
+  }
+
+  /* ===== 동래부 순절도 영역 ===== */
+  .dongnae-zone {
+    position: absolute;
+    cursor: zoom-in;
+    pointer-events: auto;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    overflow: hidden;
+    background: rgba(200, 52, 42, 0.12);
+  }
+  .dongnae-zone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(200, 52, 42, 0.22);
+    border: 2px solid rgba(200, 52, 42, 0.62);
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+  }
+  .dongnae-zone:hover::before {
+    background: rgba(200, 52, 42, 0.32);
+    border-color: rgba(154, 26, 18, 0.84);
+    box-shadow: 0 0 0 5px rgba(200, 52, 42, 0.12);
+  }
+  .dongnae-zone::after {
+    content: '클릭하여 확대';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, rgba(170, 34, 24, 0.96) 0%, rgba(142, 20, 13, 0.98) 100%);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    opacity: 0.98;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    pointer-events: none;
+    box-shadow: 0 12px 24px rgba(154, 26, 18, 0.26);
+  }
+  .dongnae-zone:hover::after {
+    transform: translate(-50%, -50%) scale(1.03);
+    box-shadow: 0 14px 28px rgba(154, 26, 18, 0.32);
+  }
+
+  /* ===== 팝업 ===== */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 15, 28, 0.62);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .popup-overlay.active {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .popup-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fbfdff 100%);
+    max-width: 560px;
+    width: 100%;
+    border-radius: 28px;
+    padding: 34px 38px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 85vh;
+    overflow-y: auto;
+    border: 1px solid rgba(184, 199, 222, 0.72);
+  }
+  @keyframes slideUp {
+    from { transform: translateY(18px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: #eff4fb;
+    color: var(--accent-deep);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+  .popup-close:hover {
+    background: var(--accent-deep);
+    color: var(--surface);
+  }
+  .popup-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    border: 1px solid #cfe0fb;
+  }
+  .popup-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--text);
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+  }
+  .popup-date {
+    font-size: 13px;
+    color: var(--text-mute);
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+  .popup-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-sub);
+  }
+
+  /* ===== 확대 뷰어 (동래부 순절도) ===== */
+  .zoom-viewer {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(44, 90, 168, 0.12), transparent 28%), rgba(7, 12, 22, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .zoom-viewer.active {
+    display: block;
+    animation: fadeIn 0.25s ease;
+  }
+
+  .zoom-content {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.24fr 1fr;
+    gap: 28px;
+    align-items: start;
+    min-height: calc(100vh - 40px);
+  }
+  @media (max-width: 900px) {
+    .zoom-content { grid-template-columns: 1fr; }
+  }
+
+  .zoom-image-box {
+    position: relative;
+    background: #0c1425;
+    border-radius: 28px;
+    overflow: hidden;
+    max-height: calc(100vh - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: var(--shadow-lg);
+  }
+  .zoom-image-box img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 40px);
+    object-fit: contain;
+    display: block;
+  }
+
+  .zoom-info {
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fbfdff 100%);
+    border-radius: 28px;
+    padding: 30px 32px;
+    box-shadow: var(--shadow-lg);
+    color: var(--text);
+    border: 1px solid rgba(184, 199, 222, 0.72);
+  }
+  .zoom-info .badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    border: 1px solid #cfe0fb;
+  }
+  .zoom-info h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    letter-spacing: -0.04em;
+  }
+  .zoom-info .subtitle {
+    font-size: 13px;
+    color: var(--text-mute);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .zoom-info h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    margin: 22px 0 8px;
+    color: var(--accent-dark);
+    letter-spacing: -0.02em;
+  }
+  .zoom-info p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-sub);
+    margin-bottom: 10px;
+  }
+  .zoom-info strong {
+    color: var(--text);
+    font-weight: 800;
+  }
+
+  .zoom-quote {
+    margin: 18px 0;
+    padding: 18px 18px;
+    background: #f7f9fd;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--text-sub);
+  }
+  .zoom-quote cite {
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--accent-dark);
+  }
+
+  .zoom-meta {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-mute);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .zoom-close-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 210;
+    transition: all 0.15s ease;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.26);
+  }
+  .zoom-close-btn:hover {
+    background: #fff;
+    transform: scale(1.08);
+  }
+
+  /* ===== 퀴즈 ===== */
+  .quiz-container {
+    max-width: 1420px;
+    margin: 22px auto 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fbfdff 100%);
+    border: 1px solid rgba(184, 199, 222, 0.72);
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+  }
+  .quiz-header {
+    margin-bottom: 30px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .quiz-header-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    border: 1px solid #cfe0fb;
+  }
+  .quiz-header h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--text);
+  }
+  .quiz-header p {
+    font-size: 14px;
+    color: var(--text-mute);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .quiz-question {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+  }
+  .quiz-question:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .q-number {
+    display: inline-block;
+    background: var(--accent-deep);
+    color: var(--surface);
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    box-shadow: 0 8px 18px rgba(18, 42, 85, 0.18);
+  }
+  .q-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+  .q-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .q-option {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 15px 18px;
+    background: #f8faff;
+    border: 1px solid #dde6f4;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.16s ease;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    box-shadow: 0 10px 24px rgba(31, 111, 214, 0.04);
+  }
+  .q-option:hover:not(.answered) {
+    border-color: var(--accent);
+    background: #ffffff;
+    transform: translateX(2px);
+    box-shadow: 0 14px 30px rgba(31, 111, 214, 0.10);
+  }
+  .q-option .marker {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid #d7e2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11px;
+    flex-shrink: 0;
+    color: var(--text-sub);
+  }
+  .q-option.correct {
+    background: var(--success-soft);
+    border-color: var(--success);
+  }
+  .q-option.correct .marker {
+    background: var(--success);
+    color: #fff;
+    border-color: var(--success);
+  }
+  .q-option.wrong {
+    background: #eef5ff;
+    border-color: var(--accent);
+  }
+  .q-option.wrong .marker {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .q-feedback {
+    margin-top: 14px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    background: #f7f9fd;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    color: var(--text-sub);
+    display: none;
+  }
+  .q-feedback.show { display: block; }
+
+  .quiz-score {
+    margin-top: 30px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #102749 0%, #1b417d 55%, #2f75d8 100%);
+    color: var(--surface);
+    border-radius: 22px;
+    display: none;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-lg);
+  }
+  .quiz-score.show { display: flex; flex-wrap: wrap; }
+  .quiz-score h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.03em;
+  }
+  .quiz-score p {
+    font-size: 14px;
+    opacity: 0.92;
+  }
+
+  footer {
+    max-width: 1420px;
+    margin: 36px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(184, 199, 222, 0.72);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 1180px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+    .side-column {
+      position: static;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    body { padding: 16px 12px 44px; }
+    .content-grid { gap: 16px; }
+    .side-column {
+      display: flex;
+      gap: 16px;
+    }
+    .header {
+      padding: 26px 22px 28px;
+      border-radius: 24px;
+    }
+    .header-main {
+      font-size: 36px;
+      padding-bottom: 14px;
+    }
+    .header-main::after {
+      height: 5px;
+    }
+    .header-chapter { font-size: 11px; letter-spacing: 0.14em; }
+    .phase-panel,
+    .guide {
+      padding: 18px 18px 20px;
+      border-radius: 22px;
+    }
+    .phase-description { font-size: 16px; }
+    .phase-header { margin-bottom: 12px; }
+    .controls { gap: 8px; }
+    .controls-label { width: 100%; margin-right: 0; }
+    .btn {
+      font-size: 12px;
+      padding: 9px 12px;
+      border-radius: 14px;
+    }
+    .guide-icon { width: 26px; height: 26px; font-size: 12px; }
+    .guide-title { font-size: 16px; }
+    .guide-list li { font-size: 15px; }
+    .page-container,
+    .quiz-container,
+    .popup-card,
+    .zoom-info,
+    .zoom-image-box {
+      border-radius: 22px;
+    }
+    .quiz-container { padding: 24px 18px; }
+    .q-text { font-size: 18px; }
+    .hotspot .dot { width: 13px; height: 13px; }
+    .hotspot.major .dot { width: 16px; height: 16px; }
+    .popup-card { padding: 28px 24px; }
+    .zoom-viewer { padding: 12px; }
+    .zoom-content { gap: 16px; }
+    .zoom-info { padding: 22px 22px; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="layout-shell">
+  <div class="content-grid">
+    <div class="main-column">
+      <!-- 상단 헤더 -->
+      <div class="header">
+        <div class="header-title">
+          <div class="header-chapter">3. 왜란과 호란 · 02</div>
+          <div class="header-main">임진왜란을 극복하다</div>
+        </div>
+      </div>
+
+      <!-- 원본 PDF 페이지 -->
+      <div class="page-container">
+        <div class="page-wrapper" id="pageWrapper">
+          <img class="page-bg" id="pageBg" src="assets/page-main.jpg" alt="임진왜란을 극복하다 교과서 페이지">
+          <div class="page-overlay" id="overlay"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side-column">
+      <!-- 사용 방법 -->
+      <div class="guide">
+        <span class="guide-icon">?</span>
+        <div class="guide-content">
+          <div class="guide-title">사용 방법</div>
+          <ul class="guide-list">
+            <li>지도 위의 <strong>붉은 원</strong>을 클릭하면 지역별 상세 설명이 열립니다.</li>
+            <li><strong>동래부 순절도</strong> 위에 붉게 오버레이된 <strong>클릭하여 확대</strong> 버튼을 누르면 확대 화면으로 자세히 볼 수 있습니다.</li>
+            <li><strong>이순신 · 곽재우 · 권율</strong> 이름 위에 붉게 오버레이된 영역을 클릭하면 인물 카드가 나타납니다.</li>
+            <li>오른쪽의 <strong>침입 경로</strong> 패널에서 시기별 버튼을 눌러 일본군의 침입 전개를 단계적으로 확인하세요.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 침입 경로 카테고리 -->
+      <div class="phase-panel">
+        <div class="phase-header">
+          <div class="phase-badge">침입 경로</div>
+          <div class="phase-description">오른쪽 패널의 시기별 버튼을 눌러 임진왜란 초기 일본군의 침입 흐름을 단계적으로 확인하세요.</div>
+        </div>
+        <div class="controls">
+          <span class="controls-label">시기 선택</span>
+          <button class="btn active" data-phase="all"><span class="btn-dot"></span>전체</button>
+          <button class="btn" data-phase="1">1592.4 상륙</button>
+          <button class="btn" data-phase="2">1592.5 한성 함락</button>
+          <button class="btn" data-phase="3">1592.6 평양 함락</button>
+          <button class="btn" data-phase="reset">초기화</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- 퀴즈 -->
+<div class="quiz-container">
+  <div class="quiz-header">
+    <div class="quiz-header-badge">SELF CHECK</div>
+    <h2>학습 확인</h2>
+    <p>네 문제를 풀어보며 배운 내용을 정리해봅시다.</p>
+  </div>
+
+  <div class="quiz-question" data-correct="1">
+    <div class="q-number">Q 1</div>
+    <div class="q-text">임진왜란을 일으킨 일본의 인물은 누구인가?</div>
+    <div class="q-options">
+      <button class="q-option" data-idx="0"><span class="marker">1</span> 미나모토노 요리토모</button>
+      <button class="q-option" data-idx="1"><span class="marker">2</span> 도요토미 히데요시</button>
+      <button class="q-option" data-idx="2"><span class="marker">3</span> 도쿠가와 이에야스</button>
+      <button class="q-option" data-idx="3"><span class="marker">4</span> 아시카가 요시미쓰</button>
+    </div>
+    <div class="q-feedback">도요토미 히데요시는 일본의 전국 시대를 통일한 뒤, 다이묘들의 불만을 외부로 돌리고 대륙 진출의 야망을 실현하고자 조선을 침략했습니다.</div>
+  </div>
+
+  <div class="quiz-question" data-correct="2">
+    <div class="q-number">Q 2</div>
+    <div class="q-text">임진왜란 발발 후 선조가 최종적으로 피란한 곳은?</div>
+    <div class="q-options">
+      <button class="q-option" data-idx="0"><span class="marker">1</span> 개성</button>
+      <button class="q-option" data-idx="1"><span class="marker">2</span> 평양</button>
+      <button class="q-option" data-idx="2"><span class="marker">3</span> 의주</button>
+      <button class="q-option" data-idx="3"><span class="marker">4</span> 한성</button>
+    </div>
+    <div class="q-feedback">한성이 함락되자 선조는 평양을 거쳐 의주까지 피란하였고, 그곳에서 명에 지원군을 요청했습니다.</div>
+  </div>
+
+  <div class="quiz-question" data-correct="0">
+    <div class="q-number">Q 3</div>
+    <div class="q-text">일본군이 조선을 빠르게 점령할 수 있었던 주요 무기는?</div>
+    <div class="q-options">
+      <button class="q-option" data-idx="0"><span class="marker">1</span> 조총</button>
+      <button class="q-option" data-idx="1"><span class="marker">2</span> 활과 화살</button>
+      <button class="q-option" data-idx="2"><span class="marker">3</span> 창과 칼</button>
+      <button class="q-option" data-idx="3"><span class="marker">4</span> 화포</button>
+    </div>
+    <div class="q-feedback">조총은 포르투갈에서 일본으로 전래된 신무기로, 오랜 평화로 전쟁 대비에 소홀했던 조선군에게 큰 충격을 주었습니다.</div>
+  </div>
+
+  <div class="quiz-question" data-correct="3">
+    <div class="q-number">Q 4</div>
+    <div class="q-text">전쟁이 시작된 지 불과 며칠 만에 한양이 함락되었는가?</div>
+    <div class="q-options">
+      <button class="q-option" data-idx="0"><span class="marker">1</span> 약 10일</button>
+      <button class="q-option" data-idx="1"><span class="marker">2</span> 약 50일</button>
+      <button class="q-option" data-idx="2"><span class="marker">3</span> 약 100일</button>
+      <button class="q-option" data-idx="3"><span class="marker">4</span> 약 20일</button>
+    </div>
+    <div class="q-feedback">1592년 4월 부산에 상륙한 일본군은 불과 20여 일 만인 5월에 수도 한양을 함락시켰습니다.</div>
+  </div>
+
+  <div class="quiz-score" id="quizScore">
+    <div>
+      <h3 id="scoreTitle">평가 결과</h3>
+      <p id="scoreText"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  WM 역사B형 · 3단원 왜란과 호란 · 02 임진왜란을 극복하다
+</footer>
+
+<!-- 팝업 (지역·인물 설명) -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-card">
+    <button class="popup-close" id="popupClose" aria-label="닫기">×</button>
+    <div class="popup-badge" id="popupBadge">지역</div>
+    <div class="popup-title" id="popupTitle"></div>
+    <div class="popup-date" id="popupDate"></div>
+    <div class="popup-body" id="popupBody"></div>
+  </div>
+</div>
+
+<!-- 확대 뷰어 (동래부 순절도) -->
+<div class="zoom-viewer" id="zoomViewer">
+  <button class="zoom-close-btn" id="zoomClose" aria-label="닫기">×</button>
+  <div class="zoom-content">
+    <div class="zoom-image-box">
+      <img src="assets/dongnae-detail.jpg" alt="동래부 순절도 확대">
+    </div>
+    <div class="zoom-info">
+      <div class="badge">기록화 · 보물</div>
+      <h2>동래부 순절도</h2>
+      <div class="subtitle">東萊府殉節圖 · 육군박물관 소장</div>
+
+      <h3>그림의 배경</h3>
+      <p>1592년 4월 15일, 임진왜란 초기 일본군이 부산에 상륙한 바로 다음 날 벌어진 <strong>동래성 전투</strong>를 그린 기록화입니다. 18세기 화원 <strong>변박(卞璞)</strong>이 1760년에 그린 작품으로, 160여 년 전 사건을 생생하게 재현했습니다.</p>
+
+      <h3>송상현의 순절</h3>
+      <p>동래부사 <strong>송상현</strong>은 일본군의 "길을 빌려달라"는 요구에 "<strong>싸워 죽기는 쉬우나 길을 빌려주기는 어렵다(戰死易, 假道難)</strong>"는 여섯 글자의 답을 보냈습니다. 그는 관복을 갖춰 입고 남문 위에 정좌한 채 끝까지 저항하다 순절했습니다.</p>
+
+      <h3>그림 속에 담긴 장면</h3>
+      <p>성 안에서는 조선 군민이 필사적으로 맞서 싸우고, 성 밖은 붉은 깃발과 투구를 쓴 일본군이 빽빽이 둘러싸고 있습니다. 남문 위에는 관복을 입은 송상현이 단정히 앉아 있고, 여인들이 지붕 위에서 기왓장을 던지는 모습도 보입니다. 당시 항전의 처절함과 백성들의 저항 의식이 한 화면에 응축되어 있습니다.</p>
+
+      <div class="zoom-quote">
+        "적선이 바다를 덮고 몰려왔다. …… 태평한 세월이 200년 동안 이어져 백성들은 전쟁을 몰랐고 각 고을은 소문만 듣고도 놀라 무너졌다."
+        <cite>— 『선조실록』</cite>
+      </div>
+
+      <h3>역사적 의의</h3>
+      <p>동래성 전투는 조선군이 수적 열세에도 굴하지 않고 결사 항전한 상징적 사건으로 기록되었습니다. 송상현의 순절은 이후 의병 운동의 정신적 뿌리가 되었으며, 「동래부 순절도」는 임진왜란 초기 전투 양상을 보여주는 가장 귀중한 시각 자료 중 하나로 평가됩니다.</p>
+
+      <div class="zoom-meta">
+        <span>비단에 채색 · 세로 145cm × 가로 96cm</span>
+        <span>보물 제392호</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== 지도 좌표 (페이지 이미지 기준 퍼센트, 1500×1909) =====
+  const places = [
+    { key: 'busan',     x: 72.5,   y: 76.5,   phase: 1, major: true,
+      title: '부산진', date: '1592년 4월 13일 · 일본군 상륙',
+      body: '도요토미 히데요시의 명을 받은 고니시 유키나가(小西行長)가 이끄는 일본군 선봉대가 부산포에 상륙했습니다. 부산진첨사 정발은 조총으로 무장한 일본군의 공격에 맞서 싸웠으나 전사하였고, 부산진은 하루 만에 함락되었습니다. 임진왜란의 시작을 알린 첫 전투입니다.' },
+    { key: 'dongnae',   x: 73, y: 76, phase: 1, major: false,
+      title: '동래성', date: '1592년 4월 15일',
+      body: '부산진이 함락된 다음 날, 일본군은 동래성을 공격했습니다. 동래부사 송상현은 "싸워 죽기는 쉬우나 길을 빌려주기는 어렵다(戰死易, 假道難)"는 말을 남기고 관복을 갖춰 입은 채 끝까지 저항하다 순절했습니다. 「동래부 순절도」는 이 장면을 기록한 그림입니다.' },
+    { key: 'hanseong',  x: 59, y: 60.5, phase: 2, major: true,
+      title: '한성(한양)', date: '1592년 5월 2일 · 수도 함락',
+      body: '일본군은 부산 상륙 후 불과 20여 일 만에 수도 한양에 도달했습니다. 선조는 이미 한양을 떠난 뒤였고, 일본군은 큰 저항 없이 도성에 입성했습니다. 태평한 세월이 200년 동안 이어져 전쟁 대비에 소홀했던 조선의 허술함이 그대로 드러난 사건이었습니다.' },
+    { key: 'pyongyang', x: 52.5, y: 52, phase: 3, major: true,
+      title: '평양', date: '1592년 6월 15일 · 평양 함락',
+      body: '한양을 점령한 일본군은 북상을 계속하여 6월에는 평양까지 함락했습니다. 선조는 이미 평양을 떠나 의주로 피란한 상태였습니다. 이후 명군이 참전하면서 1593년 1월 조·명 연합군이 평양을 탈환하며 전세의 전환점이 됩니다.' },
+    { key: 'uiju',      x: 46, y: 45, phase: 3, major: true,
+      title: '의주', date: '1592년 6월 · 선조 피란',
+      body: '선조는 평양을 거쳐 압록강변의 의주까지 피란했습니다. 이곳에서 조선 정부는 명나라에 공식적으로 지원군을 요청하였고, 명은 이여송이 이끄는 대군을 파견하여 조선과 연합 전선을 구축했습니다. 의주는 국권 수호의 마지막 보루였습니다.' },
+    { key: 'hoeryong',  x: 76.5, y: 31.5, phase: 3, major: false,
+      title: '회령', date: '1592년 7월',
+      body: '가토 기요마사(加藤淸正)가 이끄는 일본군 제2군은 함경도 방면으로 북상하여 회령까지 진출했습니다. 이곳에서 두 왕자(임해군·순화군)가 현지인들에 의해 일본군에 넘겨지는 사건이 있었습니다. 이후 의병과 관군의 반격으로 일본군은 남쪽으로 밀려났습니다.' },
+    { key: 'hansando',  x: 70, y: 78, phase: 0, major: false,
+      title: '한산도', date: '1592년 7월 8일 · 한산도 대첩',
+      body: '이순신 장군이 학익진(鶴翼陣) 전법을 구사하여 일본 수군을 대파한 역사적인 해전이 벌어진 곳입니다. 이 승리로 일본군의 서해 진출이 좌절되었고, 보급로가 끊기면서 전세가 역전되는 결정적 계기가 되었습니다. 진주대첩·행주대첩과 함께 임진왜란 3대첩으로 꼽힙니다.' },
+    { key: 'gaeseong',  x: 57.5, y: 58.5, phase: 2, major: false,
+      title: '개성', date: '1592년 5월',
+      body: '고려의 옛 수도 개성은 한양과 평양 사이에 위치한 요지로, 선조가 한양을 떠나 북쪽으로 피란하는 길에 잠시 머물렀던 곳입니다. 일본군의 북상 경로에 포함되어 곧 함락되었습니다.' },
+    { key: 'tsushima',  x: 75.5, y: 81, phase: 1, major: false,
+      title: '쓰시마(대마도)', date: '1592년 4월 · 일본군 중간 기지',
+      body: '나고야에서 출발한 일본군은 쓰시마를 경유하여 부산으로 건너왔습니다. 쓰시마는 조선과 일본의 중간에 위치한 섬으로, 오랫동안 양국 교역의 중개지 역할을 해왔습니다. 임진왜란 당시에는 일본 침략군의 전진 기지가 되었습니다.' },
+    { key: 'nagoya',    x: 79, y: 86, phase: 1, major: false,
+      title: '나고야(名護屋)', date: '1592년 · 일본군 출병 기지',
+      body: '규슈 북단에 위치한 나고야는 도요토미 히데요시가 조선 침략을 위해 세운 전진 기지입니다. 여기서 쓰시마를 거쳐 부산으로 건너간 일본군은 총 15만 8천여 명에 달했습니다. 현재의 나고야(名古屋)와는 다른 지역입니다.' }
+  ];
+
+  // 인물 이름 좌표 (페이지 이미지 기준 퍼센트)
+  // "이순신, 곽재우, 권율"은 한 줄로 y≈42에 있음
+  const figures = [
+    { key: 'yi',   x: 14, y: 40.5, w: 4.5, h: 1.6,
+      title: '이순신', date: '李舜臣 · 1545~1598 · 삼도수군통제사',
+      body: '임진왜란에서 조선 수군을 이끌며 해전사에 빛나는 승리를 거둔 명장입니다. 거북선을 개발·활용하였으며, 옥포해전을 시작으로 사천·당포·한산도·명량·노량 등 크고 작은 해전에서 연전연승하였습니다. 한산도 대첩은 일본군의 서해 진출을 막아 전세를 뒤집는 결정적 승리였고, 1598년 노량해전에서 일본군을 추격하다 전사하였습니다. "필사즉생 필생즉사(必死則生 必生則死)"라는 말로 알려져 있습니다.' },
+    { key: 'gwak', x: 18.5, y: 40.5, w: 4.5, h: 1.6,
+      title: '곽재우', date: '郭再祐 · 1552~1617 · 홍의장군',
+      body: '경상도 의령에서 임진왜란 발발 직후 가장 먼저 의병을 일으킨 인물입니다. 붉은 옷을 입고 백마를 탄 채 전투에 나서 "홍의장군(紅衣將軍)"이라 불렸습니다. 낙동강 유역에서 일본군의 서진(西進)을 저지하는 활약을 펼쳤으며, 관군과 긴밀히 협력하여 경상우도를 방어했습니다. 전쟁 후에는 벼슬을 사양하고 은거하였습니다.' },
+    { key: 'gwon', x: 22.8, y: 40.5, w: 3.5, h: 1.6,
+      title: '권율', date: '權慄 · 1537~1599 · 도원수',
+      body: '임진왜란 당시 조선 육군을 총지휘한 도원수입니다. 1593년 2월 행주산성에서 약 2,300명의 병력으로 3만 명의 일본군을 물리친 행주대첩의 주인공으로 유명합니다. 행주대첩은 이치전투·웅치전투와 더불어 조선 육군이 거둔 대표적 승리로, 한산도 대첩·진주대첩과 함께 임진왜란 3대첩에 꼽힙니다. 이때 부녀자들이 치마로 돌을 날라 병사들에게 전달했다는 "행주치마" 일화가 전해집니다.' }
+  ];
+
+  // 동래부 순절도 영역
+  const dongnaeArea = { x: 4, y: 52, w: 26, h: 25 };
+
+  const overlay = document.getElementById('overlay');
+
+  // 핫스팟 생성
+  places.forEach(place => {
+    const hs = document.createElement('div');
+    hs.className = 'hotspot' + (place.major ? ' major' : '');
+    hs.style.left = place.x + '%';
+    hs.style.top = place.y + '%';
+    hs.dataset.phase = place.phase;
+    hs.dataset.type = 'place';
+    hs.title = place.title;
+
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    hs.appendChild(dot);
+
+    hs.addEventListener('click', () => showPopup(place, '지역'));
+    overlay.appendChild(hs);
+  });
+
+  // 인물 클릭 영역
+  figures.forEach(fig => {
+    const zone = document.createElement('div');
+    zone.className = 'figure-zone';
+    zone.style.left = fig.x + '%';
+    zone.style.top = fig.y + '%';
+    zone.style.width = fig.w + '%';
+    zone.style.height = fig.h + '%';
+    zone.style.transform = 'translateY(-50%)';
+    zone.title = fig.title;
+    zone.addEventListener('click', () => showPopup(fig, '인물'));
+    overlay.appendChild(zone);
+  });
+
+  // 동래부 영역
+  const dongnae = document.createElement('div');
+  dongnae.className = 'dongnae-zone';
+  dongnae.style.left = dongnaeArea.x + '%';
+  dongnae.style.top = dongnaeArea.y + '%';
+  dongnae.style.width = dongnaeArea.w + '%';
+  dongnae.style.height = dongnaeArea.h + '%';
+  dongnae.addEventListener('click', () => {
+    document.getElementById('zoomViewer').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+  overlay.appendChild(dongnae);
+
+  // 팝업
+  const popup = document.getElementById('popup');
+  const popupBadge = document.getElementById('popupBadge');
+  const popupTitle = document.getElementById('popupTitle');
+  const popupDate = document.getElementById('popupDate');
+  const popupBody = document.getElementById('popupBody');
+
+  function showPopup(data, badge) {
+    popupBadge.textContent = badge || '지역';
+    popupTitle.textContent = data.title;
+    popupDate.textContent = data.date;
+    popupBody.textContent = data.body;
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePopup() {
+    popup.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('popupClose').onclick = closePopup;
+  popup.onclick = (e) => { if (e.target === popup) closePopup(); };
+
+  // 확대 뷰어
+  const zoomViewer = document.getElementById('zoomViewer');
+  function closeZoom() {
+    zoomViewer.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('zoomClose').onclick = closeZoom;
+  // 이미지/정보 영역 외부 클릭 시 닫기
+  zoomViewer.addEventListener('click', (e) => {
+    if (e.target === zoomViewer) closeZoom();
+  });
+
+  // 시기별 경로 보기
+  function setPhase(phase) {
+    const hotspots = document.querySelectorAll('.hotspot');
+    if (phase === 'all') {
+      hotspots.forEach(hs => {
+        hs.style.opacity = '1';
+      });
+    } else if (phase === 'reset') {
+      hotspots.forEach(hs => hs.style.opacity = '0.2');
+    } else {
+      const phaseNum = parseInt(phase);
+      hotspots.forEach(hs => {
+        const hsPhase = parseInt(hs.dataset.phase);
+        if (hsPhase <= phaseNum && hsPhase > 0) {
+          hs.style.opacity = '1';
+        } else {
+          hs.style.opacity = '0.2';
+        }
+      });
+    }
+  }
+  document.querySelectorAll('.btn[data-phase]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.btn[data-phase]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      setPhase(btn.dataset.phase);
+    });
+  });
+
+  // 퀴즈
+  let correctCount = 0;
+  let answeredCount = 0;
+  const totalQuestions = document.querySelectorAll('.quiz-question').length;
+  document.querySelectorAll('.quiz-question').forEach(q => {
+    const correct = parseInt(q.dataset.correct);
+    const options = q.querySelectorAll('.q-option');
+    const feedback = q.querySelector('.q-feedback');
+    let answered = false;
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (answered) return;
+        answered = true;
+        answeredCount++;
+        const idx = parseInt(opt.dataset.idx);
+        if (idx === correct) {
+          opt.classList.add('correct');
+          correctCount++;
+        } else {
+          opt.classList.add('wrong');
+          options[correct].classList.add('correct');
+        }
+        options.forEach(o => o.classList.add('answered'));
+        feedback.classList.add('show');
+        if (answeredCount === totalQuestions) setTimeout(showScore, 500);
+      });
+    });
+  });
+  function showScore() {
+    const scoreEl = document.getElementById('quizScore');
+    const scoreText = document.getElementById('scoreText');
+    const scoreTitle = document.getElementById('scoreTitle');
+    const percent = Math.round((correctCount / totalQuestions) * 100);
+    let comment = '';
+    if (percent === 100) comment = '완벽합니다! 임진왜란의 흐름을 정확히 이해하고 있어요.';
+    else if (percent >= 75) comment = '잘 하셨습니다. 대부분의 내용을 잘 파악하고 있어요.';
+    else if (percent >= 50) comment = '조금만 더 복습해봅시다. 본문을 다시 읽어보세요.';
+    else comment = '본문과 지도를 다시 살펴본 뒤 도전해보세요.';
+    scoreTitle.textContent = `${totalQuestions}문제 중 ${correctCount}문제 정답`;
+    scoreText.textContent = comment;
+    scoreEl.classList.add('show');
+    scoreEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ESC로 닫기
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closePopup();
+      closeZoom();
+    }
+  });
+</script>
+
+</body>
+</html>
