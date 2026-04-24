@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#1f6fd6">
+<meta name="theme-color" content="#1959b3">
+<meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
 <title>임진왜란을 극복하다 | 디지털 학습자료</title>
-<!-- Cross-platform package: host this folder on any static web server for best results on iPad/iPhone/Android. --><style>
+<style>
 
   :root {
     --bg: #f3f6fb;
@@ -30,6 +30,22 @@
     --route-accent-dark: #9a1a12;
     --route-accent-soft: #fef2f0;
     --route-accent-line: rgba(200, 52, 42, 0.16);
+    /* ===== 시기별(phase) 컬러 팔레트 ===== */
+    /* phase 1: 부산 상륙 — 붉은색 (기존 route-accent 계열) */
+    --phase1: #c8342a;
+    --phase1-dark: #9a1a12;
+    --phase1-light: #df4d42;
+    --phase1-rgb: 200, 52, 42;
+    /* phase 2: 한성 함락 — 오렌지 */
+    --phase2: #e8761a;
+    --phase2-dark: #b0520a;
+    --phase2-light: #f59538;
+    --phase2-rgb: 232, 118, 26;
+    /* phase 3: 평양 함락 — 보라 */
+    --phase3: #8a3cb8;
+    --phase3-dark: #5d2687;
+    --phase3-light: #a358d3;
+    --phase3-rgb: 138, 60, 184;
     --success: #2d7a4f;
     --success-soft: #e8f5ed;
     --shadow-sm: 0 6px 18px rgba(16, 24, 40, 0.06);
@@ -42,35 +58,17 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+* { -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; overflow-x: hidden; }
+  img, svg, video, canvas { max-width: 100%; }
+  button, [role="button"], .btn, .hotspot, .figure-zone, .dongnae-zone, .popup-close, .zoom-close-btn, .dng-hotspot {
+    touch-action: manipulation;
+  }
 
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-body, button, input, textarea, select {
-  text-rendering: optimizeLegibility;
-}
-
-img {
-  max-width: 100%;
-}
-
-button,
-.btn,
-.hotspot,
-.figure-zone,
-.dongnae-zone,
-.popup-close,
-.zoom-close-btn,
-.q-option {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     background:
       radial-gradient(circle at 12% 10%, rgba(31, 111, 214, 0.10), transparent 24%),
       radial-gradient(circle at 88% 14%, rgba(200, 52, 42, 0.06), transparent 18%),
@@ -131,31 +129,57 @@ button,
     top: 24px;
   }
 
+
+  .section-title-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .title-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    border: none;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 10px 22px rgba(31, 111, 214, 0.18);
+  }
+  .title-icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    fill: currentColor;
+  }
+  .title-icon.route {
+    background: var(--route-accent);
+    color: #ffffff;
+    box-shadow: 0 10px 22px rgba(200, 52, 42, 0.18);
+  }
+  .title-icon.quiz {
+    background: var(--accent-dark);
+    color: #ffffff;
+    box-shadow: 0 10px 22px rgba(20, 79, 155, 0.18);
+  }
+
   /* ===== 상단 헤더 바 ===== */
   .header {
     position: relative;
     max-width: none;
     margin: 0 0 18px;
     padding: 34px 38px 36px;
-    background:
-      linear-gradient(135deg, #15325f 0%, #214d91 54%, #2f75d8 100%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #1959b3;
+    border: 1px solid rgba(14, 54, 110, 0.94);
     border-radius: 28px;
-    box-shadow: var(--shadow-lg), var(--shadow-blue);
+    box-shadow: var(--shadow-md);
     overflow: hidden;
     isolation: isolate;
   }
   .header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 84% 20%, rgba(255,255,255,0.18), transparent 18%),
-      linear-gradient(90deg, rgba(255,255,255,0.09) 0 1px, transparent 1px 100%),
-      linear-gradient(180deg, rgba(255,255,255,0.07) 0 1px, transparent 1px 100%);
-    background-size: auto, 56px 100%, 100% 56px;
-    opacity: 0.35;
-    z-index: -1;
+    content: none;
   }
   .header::after {
     content: none;
@@ -173,14 +197,13 @@ button,
     align-items: center;
     width: fit-content;
     padding: 8px 14px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.20);
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 999px;
-    backdrop-filter: blur(12px);
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 12px;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.94);
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
@@ -189,14 +212,14 @@ button,
     display: inline-block;
     width: fit-content;
     padding-bottom: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 48px;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.055em;
     line-height: 1.06;
     text-wrap: balance;
-    text-shadow: 0 10px 28px rgba(7, 20, 46, 0.22);
+    text-shadow: none;
   }
   .header-main::after {
     content: '';
@@ -204,10 +227,16 @@ button,
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 6px;
+    height: 4px;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--accent) 0%, #69a8ff 100%);
-    box-shadow: 0 0 20px rgba(31, 111, 214, 0.28);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: none;
+    opacity: 1;
+  }
+
+  .header-main .keep-word {
+    display: inline-block;
+    white-space: nowrap;
   }
 
   /* ===== 침입 경로 카테고리 ===== */
@@ -215,11 +244,10 @@ button,
     max-width: none;
     margin: 0;
     padding: 22px;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fffaf9 100%);
+    background: var(--surface);
     border: 1px solid #efcfc9;
     border-radius: 24px;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     position: relative;
     overflow: hidden;
   }
@@ -227,8 +255,8 @@ button,
     content: '';
     position: absolute;
     inset: 0 auto 0 0;
-    width: 6px;
-    background: linear-gradient(180deg, var(--route-accent) 0%, #ef776e 100%);
+    width: 5px;
+    background: var(--route-accent);
   }
   .phase-header {
     display: flex;
@@ -240,8 +268,8 @@ button,
   .phase-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 9px 14px;
+    gap: 10px;
+    padding: 8px 12px;
     background: var(--route-accent-soft);
     color: var(--route-accent-dark);
     border: 1px solid #f1c8c2;
@@ -249,45 +277,59 @@ button,
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.10em;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
   }
-  .phase-badge::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--route-accent);
-    box-shadow: 0 0 0 5px rgba(200, 52, 42, 0.12);
+  .phase-badge .title-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
   }
   .phase-description {
-    font-size: 18px;
+    font-size: 15px;
     color: #7c2118;
     font-weight: 800;
-    line-height: 1.65;
-    letter-spacing: -0.025em;
+    line-height: 1.6;
+    letter-spacing: -0.03em;
   }
   .controls {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    gap: 12px;
+    align-items: start;
   }
   .controls-label {
-    width: 100%;
+    width: auto;
     font-size: 12px;
     color: #8b2a20;
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-right: 0;
-    margin-bottom: 2px;
+    margin: 0;
+  }
+  .controls-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .timeline-flow {
+    display: grid;
+    gap: 8px;
+  }
+  .timeline-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #b4544c;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+    padding-left: 16px;
   }
   .btn {
     font-family: inherit;
     font-size: 13px;
     font-weight: 700;
     padding: 11px 16px;
-    background: rgba(255,255,255,0.84);
+    background: #ffffff;
     color: #63231c;
     border: 1px solid #f0d8d3;
     border-radius: 16px;
@@ -297,23 +339,23 @@ button,
     align-items: center;
     gap: 8px;
     letter-spacing: -0.01em;
-    box-shadow: 0 10px 24px rgba(200, 52, 42, 0.06);
+    box-shadow: none;
   }
   .btn:hover {
     border-color: var(--route-accent);
     background: #fff7f5;
     color: var(--route-accent-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(200, 52, 42, 0.12);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
   }
   .btn.active {
-    background: linear-gradient(135deg, var(--route-accent) 0%, #de5247 100%);
+    background: var(--route-accent);
     border-color: var(--route-accent);
     color: #fff;
-    box-shadow: 0 14px 28px rgba(200, 52, 42, 0.22);
+    box-shadow: none;
   }
   .btn.active:hover {
-    background: linear-gradient(135deg, var(--route-accent-dark) 0%, #bf2f24 100%);
+    background: var(--route-accent-dark);
     border-color: var(--route-accent-dark);
   }
   .btn .btn-dot {
@@ -323,20 +365,85 @@ button,
     background: currentColor;
     opacity: 0.82;
   }
+  .btn-utility {
+    background: #fff8f6;
+  }
+  .btn-step {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .btn-step .step-date {
+    font-size: 12px;
+    font-weight: 800;
+    color: #8b2a20;
+    line-height: 1;
+  }
+  .btn-step .step-label {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .btn-step.active .step-date,
+  .btn-step.active .step-label {
+    color: #fff;
+  }
+
+  /* ===== 시기별(phase) 버튼 컬러 =====
+     phase 1: 부산 상륙(빨강 — 기본 유지)
+     phase 2: 한성 함락(오렌지)
+     phase 3: 평양 함락(보라) */
+  /* phase 2 — 한성 함락: 오렌지 */
+  .btn-step[data-phase="2"]:hover {
+    border-color: var(--phase2);
+    background: #fff6ec;
+    color: var(--phase2-dark);
+  }
+  .btn-step[data-phase="2"]:hover .step-date {
+    color: var(--phase2-dark);
+  }
+  .btn-step[data-phase="2"].active {
+    background: var(--phase2);
+    border-color: var(--phase2);
+    color: #fff;
+  }
+  .btn-step[data-phase="2"].active:hover {
+    background: var(--phase2-dark);
+    border-color: var(--phase2-dark);
+  }
+  /* phase 3 — 평양 함락: 보라 */
+  .btn-step[data-phase="3"]:hover {
+    border-color: var(--phase3);
+    background: #f7efff;
+    color: var(--phase3-dark);
+  }
+  .btn-step[data-phase="3"]:hover .step-date {
+    color: var(--phase3-dark);
+  }
+  .btn-step[data-phase="3"].active {
+    background: var(--phase3);
+    border-color: var(--phase3);
+    color: #fff;
+  }
+  .btn-step[data-phase="3"].active:hover {
+    background: var(--phase3-dark);
+    border-color: var(--phase3-dark);
+  }
 
   /* ===== 안내 배너 ===== */
   .guide {
     max-width: none;
     margin: 0;
     padding: 24px 24px 24px 22px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, #f7f8fa 100%);
+    background: var(--surface);
     border: 1px solid #d8dbe2;
     border-radius: 24px;
     color: #343438;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    box-shadow: var(--shadow-md);
+    display: block;
+    box-shadow: var(--shadow-sm);
     position: relative;
     overflow: hidden;
   }
@@ -347,25 +454,14 @@ button,
     width: 6px;
     background: linear-gradient(180deg, #7b8088 0%, #babec6 100%);
   }
-  .guide-icon {
-    flex-shrink: 0;
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(180deg, #545961 0%, #717680 100%);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 800;
-    margin-top: 2px;
-    box-shadow: 0 10px 20px rgba(84, 89, 97, 0.18);
-  }
+  .guide-icon { display: none; }
   .guide-content {
     flex: 1;
   }
   .guide-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 18px;
     font-weight: 800;
     color: #2f3439;
@@ -451,40 +547,81 @@ button,
     cursor: pointer;
     pointer-events: auto;
     transition: opacity 0.3s ease, transform 0.2s ease;
+    /* 기본(phase 1/0) 컬러 — 개별 phase 규칙에서 덮어씀 */
+    --hs-color: var(--phase1);
+    --hs-color-light: var(--phase1-light);
+    --hs-rgb: var(--phase1-rgb);
+  }
+  /* phase별 컬러 바인딩 */
+  .hotspot[data-phase="1"],
+  .hotspot[data-phase="0"] {
+    --hs-color: var(--phase1);
+    --hs-color-light: var(--phase1-light);
+    --hs-rgb: var(--phase1-rgb);
+  }
+  .hotspot[data-phase="2"] {
+    --hs-color: var(--phase2);
+    --hs-color-light: var(--phase2-light);
+    --hs-rgb: var(--phase2-rgb);
+  }
+  .hotspot[data-phase="3"] {
+    --hs-color: var(--phase3);
+    --hs-color-light: var(--phase3-light);
+    --hs-rgb: var(--phase3-rgb);
   }
   .hotspot .dot {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: linear-gradient(180deg, #df4d42 0%, var(--route-accent) 100%);
+    background: linear-gradient(180deg, var(--hs-color-light) 0%, var(--hs-color) 100%);
     border: 3px solid #fff;
-    box-shadow: 0 0 0 3px rgba(200, 52, 42, 0.92), 0 10px 22px rgba(200, 52, 42, 0.24);
+    box-shadow: 0 0 0 3px rgba(var(--hs-rgb), 0.92), 0 10px 22px rgba(var(--hs-rgb), 0.24);
     transition: all 0.2s ease;
   }
   .hotspot.major .dot {
     width: 19px;
     height: 19px;
   }
+  /* 핵심 버튼(major) 깜박임 효과 — 기존 대비 +30% 강화
+     (크기 20→26, scale 범위 1→3.0 → 1→3.5, opacity 0.35→0.46) */
   .hotspot.major::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    background: var(--route-accent);
-    opacity: 0.30;
+    background: var(--hs-color);
+    opacity: 0.39;
     animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
-  @keyframes ping {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.35; }
-    75%, 100% { transform: translate(-50%, -50%) scale(3.0); opacity: 0; }
+  /* 2차 링: 잔향을 더해 깜박임이 더 확실히 느껴지도록 */
+  .hotspot.major::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--hs-color);
+    opacity: 0.3;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    animation-delay: 0.6s;
+    pointer-events: none;
   }
+  @keyframes ping {
+    0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.46; }
+    75%,
+    100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+  }
+  /* hover 확대 +30% 강화 (1.22 → 1.286) + 그림자도 phase 컬러로 */
   .hotspot:hover .dot {
-    transform: scale(1.22);
-    box-shadow: 0 0 0 4px var(--route-accent), 0 14px 26px rgba(200, 52, 42, 0.30);
+    transform: scale(1.286);
+    box-shadow: 0 0 0 4px var(--hs-color), 0 14px 26px rgba(var(--hs-rgb), 0.30);
   }
 
   /* ===== 인물 이름 강조 ===== */
@@ -516,22 +653,31 @@ button,
     box-shadow: 0 0 0 4px rgba(200, 52, 42, 0.12);
   }
   .figure-zone::after {
-    content: '인물 카드';
+    content: attr(data-label);
     position: absolute;
-    bottom: -26px;
+    bottom: -24px;
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(180deg, rgba(162, 30, 20, 0.95) 0%, rgba(133, 19, 12, 0.96) 100%);
     color: #fff;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 10px;
+    width: max-content;
+    min-width: 0;
+    height: 18px;
+    padding: 0 3px;
+    border-radius: 4px;
+    font-size: 8px;
     font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
     opacity: 0.96;
     transition: opacity 0.2s ease, transform 0.2s ease;
     pointer-events: none;
-    box-shadow: 0 8px 18px rgba(154, 26, 18, 0.20);
+    box-shadow: 0 6px 12px rgba(154, 26, 18, 0.16);
   }
   .figure-zone:hover::after {
     opacity: 1;
@@ -658,7 +804,7 @@ button,
     border: 1px solid #cfe0fb;
   }
   .popup-title {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 6px;
@@ -677,140 +823,440 @@ button,
     line-height: 1.85;
     color: var(--text-sub);
   }
-
-  /* ===== 확대 뷰어 (동래부 순절도) ===== */
+  .popup-media {
+    display: grid;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 12px;
+    background: #f7f9fd;
+    border: 1px solid #dbe4f1;
+    border-radius: 18px;
+  }
+  .popup-media[hidden] {
+    display: none;
+  }
+  .popup-media img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+    background: #eef3fa;
+  }
+  .popup-media figcaption {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text-mute);
+    font-weight: 600;
+  }
+  
+/* ===== 동래부 순절도 팝업 뷰어 ===== */
   .zoom-viewer {
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at top, rgba(44, 90, 168, 0.12), transparent 28%), rgba(7, 12, 22, 0.94);
-    backdrop-filter: blur(8px);
+    background: rgba(7, 12, 22, 0.82);
+    backdrop-filter: blur(10px);
     z-index: 200;
     display: none;
-    padding: 20px;
-    overflow-y: auto;
+    padding: 24px;
   }
   .zoom-viewer.active {
-    display: block;
-    animation: fadeIn 0.25s ease;
-  }
-
-  .zoom-content {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.24fr 1fr;
-    gap: 28px;
-    align-items: start;
-    min-height: calc(100vh - 40px);
-  }
-  @media (max-width: 900px) {
-    .zoom-content { grid-template-columns: 1fr; }
-  }
-
-  .zoom-image-box {
-    position: relative;
-    background: #0c1425;
-    border-radius: 28px;
-    overflow: hidden;
-    max-height: calc(100vh - 40px);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,0.10);
+    animation: fadeIn 0.25s ease;
+  }
+  .zoom-content {
+    width: min(1320px, calc(100vw - 48px));
+    max-height: min(92vh, 980px);
+    overflow: auto;
+    margin: 0 auto;
+    border-radius: 28px;
+    background: #0b1220;
+    border: 1px solid rgba(255,255,255,0.12);
     box-shadow: var(--shadow-lg);
   }
-  .zoom-image-box img {
+  .dongnae-direct {
+    --parchment:#f4e8d0;
+    --parchment-dark:#e0c99a;
+    --accent:#8b2c2c;
+    --mint:#5bbcb0;
+    --mint-glow:rgba(91,188,176,0.38);
+    --gold:#c9972a;
+    position: relative;
+    min-height: 100%;
+    background: #100c06;
+    color: var(--parchment);
+    padding: 32px 26px 34px;
+    overflow: hidden;
+  }
+  .dongnae-direct::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    pointer-events:none;
+    z-index:0;
+  }
+  .dongnae-direct-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .dongnae-direct-header h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--parchment);
+    letter-spacing: 0.06em;
+  }
+  .dongnae-direct-header p {
+    margin-top: 8px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+  }
+  .dongnae-direct-divider {
+    width: 180px;
+    height: 1px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .dongnae-direct-stage {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+    margin: 0 auto 24px;
+  }
+  .dongnae-direct-frame {
+    position: relative;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 7px rgba(201,151,42,.13),0 0 0 8px var(--gold),0 24px 70px rgba(0,0,0,.75);
+    background: #0a0804;
+  }
+  .dongnae-direct-main {
+    display: block;
     width: 100%;
     height: auto;
-    max-height: calc(100vh - 40px);
-    object-fit: contain;
-    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
   }
-
-  .zoom-info {
-    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fbfdff 100%);
-    border-radius: 28px;
-    padding: 30px 32px;
-    box-shadow: var(--shadow-lg);
-    color: var(--text);
-    border: 1px solid rgba(184, 199, 222, 0.72);
+  .dng-hotspot {
+    position: absolute;
+    z-index: 1;
+    border-radius: 16px;
+    border: 2.5px solid var(--mint);
+    background: rgba(91,188,176,.18);
+    box-shadow: inset 0 0 0 1px rgba(244,232,208,.18), 0 0 0 0 var(--mint-glow);
+    transition: background .25s, transform .25s, box-shadow .25s, border-color .25s;
+    animation: dngPulse 2.8s ease-in-out infinite;
+    cursor: pointer;
   }
-  .zoom-info .badge {
-    display: inline-block;
-    padding: 5px 10px;
-    background: var(--accent-soft);
-    color: var(--accent-dark);
+  .dng-hotspot:hover,
+  .dng-hotspot:focus-visible {
+    z-index: 40;
+    background: rgba(91,188,176,.28);
+    border-color: #8fe8e0;
+    transform: translateY(-1px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 0 22px var(--mint-glow), 0 0 44px rgba(91,188,176,.18);
+    animation: none;
+    outline: none;
+  }
+  .dng-hotspot::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: calc(100% + 6px);
+    border: 7px solid transparent;
+    border-top-color: rgba(18, 11, 5, 0.96);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .2s ease, transform .2s ease;
+    pointer-events: none;
+  }
+  .dng-hotspot::after {
+    content: attr(data-summary);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 18px);
+    transform: translateX(-50%) translateY(4px);
+    width: max-content;
+    max-width: min(240px, 48vw);
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(18, 11, 5, 0.96);
+    border: 1px solid rgba(201,151,42,.36);
+    box-shadow: 0 16px 34px rgba(0,0,0,.34);
+    color: var(--parchment);
+    font-size: .8rem;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: left;
+    white-space: normal;
+    opacity: 0;
+    transition: opacity .2s ease, transform .2s ease;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .dng-hotspot:hover::before,
+  .dng-hotspot:hover::after,
+  .dng-hotspot:focus-visible::before,
+  .dng-hotspot:focus-visible::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dng-hotspot:hover::before,
+  .dng-hotspot:focus-visible::before {
+    transform: translateY(0);
+  }
+  @keyframes dngPulse {
+    0%,100% { box-shadow: inset 0 0 0 1px rgba(244,232,208,.18), 0 0 0 0 var(--mint-glow); }
+    55% { box-shadow: inset 0 0 0 1px rgba(244,232,208,.18), 0 0 0 10px transparent; }
+  }
+  .dng-hotspot-badge {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 24px;
+    height: 24px;
     border-radius: 999px;
+    background: var(--accent);
+    color: var(--parchment);
     font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px;
-    border: 1px solid #cfe0fb;
-  }
-  .zoom-info h2 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
-    font-size: 30px;
-    font-weight: 800;
-    margin-bottom: 4px;
-    letter-spacing: -0.04em;
-  }
-  .zoom-info .subtitle {
-    font-size: 13px;
-    color: var(--text-mute);
-    margin-bottom: 20px;
     font-weight: 700;
-  }
-  .zoom-info h3 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    margin: 22px 0 8px;
-    color: var(--accent-dark);
-    letter-spacing: -0.02em;
-  }
-  .zoom-info p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--text-sub);
-    margin-bottom: 10px;
-  }
-  .zoom-info strong {
-    color: var(--text);
-    font-weight: 800;
-  }
-
-  .zoom-quote {
-    margin: 18px 0;
-    padding: 18px 18px;
-    background: #f7f9fd;
-    border-left: 4px solid var(--accent);
-    border-radius: 0 12px 12px 0;
-    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    font-size: 14px;
-    font-style: italic;
-    line-height: 1.75;
-    color: var(--text-sub);
-  }
-  .zoom-quote cite {
-    display: block;
-    text-align: right;
-    margin-top: 8px;
-    font-style: normal;
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--accent-dark);
-  }
-
-  .zoom-meta {
-    margin-top: 22px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    font-size: 12px;
-    color: var(--text-mute);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    border: 1.5px solid var(--parchment);
+    box-shadow: 0 6px 14px rgba(0,0,0,.28);
+    pointer-events: none;
+  }
+  .dng-scene-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 260;
+    background: rgba(8,5,2,.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+  .dng-scene-modal.active {
+    display: flex;
+    animation: fadeIn .3s ease;
+  }
+  .dng-scene-box {
+    position: relative;
+    max-width: 620px;
+    width: 100%;
+    background: var(--parchment);
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 0 6px rgba(201,151,42,.14),0 0 0 7px var(--gold),0 32px 90px rgba(0,0,0,.85);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: dngScaleIn .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes dngScaleIn {
+    from { transform: scale(.8); opacity:0; }
+    to { transform: scale(1); opacity:1; }
+  }
+  .dng-scene-img-wrap {
+    position: relative;
+    width: 100%;
+    background: #0a0804;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+  }
+  .dng-scene-img-wrap.loading .dng-scene-img { opacity: 0; }
+  .dng-scene-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: opacity .3s;
+  }
+  .dng-scene-spinner {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(201,151,42,.2);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+    position: absolute;
+  }
+  .dng-scene-img-wrap.loading .dng-scene-spinner { display: block; }
+  .dng-scene-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    background: var(--accent);
+    color: var(--parchment);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 11px;
+    border-radius: 999px;
+    letter-spacing: .08em;
+  }
+  .dng-scene-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s, transform .25s;
+    box-shadow: 0 2px 10px rgba(0,0,0,.45);
+  }
+  .dng-scene-close:hover {
+    background: #6e1a1a;
+    transform: scale(1.08) rotate(90deg);
+  }
+  .dng-scene-desc {
+    padding: 20px 24px 26px;
+    background: var(--parchment);
+    border-top: 2px solid var(--parchment-dark);
+  }
+  .dng-scene-desc h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.08rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: .03em;
+  }
+  .dng-scene-desc p {
+    font-size: .92rem;
+    color: #3a2810;
+    line-height: 1.82;
+  }
+
+  /* ===== 동래부 순절도: 한 화면 분할 보기 ===== */
+  .dongnae-direct {
+    display: grid;
+    grid-template-columns: minmax(0, 560px) minmax(420px, 620px);
+    grid-template-areas:
+      'header header'
+      'stage panel';
+    gap: 24px 32px;
+    align-items: start;
+    width: min(100%, 1212px);
+    margin: 0 auto;
+  }
+  .dongnae-direct-header {
+    grid-area: header;
+    margin-bottom: 0;
+  }
+  .dongnae-direct-stage {
+    grid-area: stage;
+    max-width: none;
+    margin: 0;
+  }
+  .dng-hotspot.active {
+    background: rgba(91,188,176,.32);
+    border-color: #8fe8e0;
+    transform: translateY(-1px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 0 22px var(--mint-glow), 0 0 44px rgba(91,188,176,.18);
+    animation: none;
+  }
+  .dng-scene-modal {
+    grid-area: panel;
+    display: block;
+    position: sticky;
+    top: 24px;
+    inset: auto;
+    z-index: 1;
+    background: none;
+    padding: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    align-self: start;
+    justify-self: stretch;
+    min-width: 0;
+  }
+  .dng-scene-modal.active {
+    display: block;
+    animation: none;
+  }
+  .dng-scene-box {
+    max-width: 620px;
+    width: 100%;
+    min-height: 0;
+    margin-left: auto;
+    animation: none;
+  }
+  .dng-scene-close {
+    display: none;
+  }
+  .dng-scene-modal[data-empty="true"] .dng-scene-img-wrap {
+    min-height: 240px;
+    background: linear-gradient(180deg, rgba(12,9,5,.96) 0%, rgba(40,27,14,.96) 100%);
+  }
+  .dng-scene-modal[data-empty="true"] .dng-scene-img {
+    display: none;
+  }
+  .dng-scene-modal[data-empty="true"] .dng-scene-img-wrap::after {
+    content: '왼쪽 동래부 순절도의 오버레이 버튼을 누르면 확대 이미지가 이곳에 표시됩니다.';
+    display: block;
+    width: min(280px, calc(100% - 40px));
+    text-align: center;
+    color: var(--parchment);
+    font-size: .92rem;
+    line-height: 1.8;
+    letter-spacing: .01em;
+    opacity: .92;
+  }
+  .dng-scene-modal[data-empty="true"] .dng-scene-spinner {
+    display: none !important;
+  }
+  @media (max-width: 1100px) {
+    .dongnae-direct {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'header'
+        'stage'
+        'panel';
+      gap: 18px;
+      width: 100%;
+    }
+    .dng-scene-modal {
+      position: relative;
+      top: auto;
+    }
+    .dng-scene-box {
+      max-width: none;
+      margin-left: 0;
+    }
+    .dng-scene-modal[data-empty="true"] .dng-scene-img-wrap {
+      min-height: 180px;
+    }
+  }
+  @media (max-width: 900px) {
+    .zoom-content {
+      width: min(96vw, 1320px);
+      max-height: 92vh;
+    }
+  }
+  @media (max-width: 700px) {
+    .dongnae-direct {
+      padding: 22px 14px 24px;
+      gap: 16px;
+    }
   }
 
   .zoom-close-btn {
@@ -820,7 +1266,7 @@ button,
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.94);
     border: none;
     cursor: pointer;
     font-size: 22px;
@@ -837,19 +1283,31 @@ button,
   }
 
   /* ===== 퀴즈 ===== */
-  .quiz-container {
+  .quiz-shell {
     max-width: 1420px;
     margin: 22px auto 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #fbfdff 100%);
+  }
+  .quiz-container {
+    width: calc(100% - 372px);
+    max-width: 1048px;
+    margin: 0;
+    background: var(--surface);
     border: 1px solid rgba(184, 199, 222, 0.72);
     border-radius: 28px;
     padding: 40px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
   .quiz-header {
     margin-bottom: 30px;
     padding-bottom: 22px;
     border-bottom: 1px solid var(--border);
+  }
+  .quiz-header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
   }
   .quiz-header-badge {
     display: inline-block;
@@ -860,15 +1318,17 @@ button,
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     border: 1px solid #cfe0fb;
   }
   .quiz-header h2 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 28px;
     font-weight: 800;
     letter-spacing: -0.04em;
     color: var(--text);
+    line-height: 1.18;
+    margin: 0;
   }
   .quiz-header p {
     font-size: 14px;
@@ -899,7 +1359,7 @@ button,
     box-shadow: 0 8px 18px rgba(18, 42, 85, 0.18);
   }
   .q-text {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 16px;
@@ -992,7 +1452,7 @@ button,
   }
   .quiz-score.show { display: flex; flex-wrap: wrap; }
   .quiz-score h3 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 6px;
@@ -1024,6 +1484,10 @@ button,
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
+    .quiz-container {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   @media (max-width: 700px) {
@@ -1034,49 +1498,103 @@ button,
       gap: 16px;
     }
     .header {
-      padding: 26px 22px 28px;
-      border-radius: 24px;
-    }
+    position: relative;
+    max-width: none;
+    margin: 0 0 18px;
+    padding: 34px 38px 36px;
+    background: #1959b3;
+    border: 1px solid rgba(14, 54, 110, 0.94);
+    border-radius: 28px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .header::before {
+    content: none;
+  }
+  .header::after {
+    content: none;
+  }
+  .header-title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 720px;
+  }
+  .header-chapter {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .header-main {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    padding-bottom: 16px;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.055em;
+    line-height: 1.06;
+    text-wrap: balance;
+    text-shadow: none;
+  }
+  .header-main::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: none;
+    opacity: 1;
+  }
+
+
+
+  /* ===== 헤더 제목 줄별 밑줄 보정 ===== */
+  .header-main {
+    padding-bottom: 0;
+  }
+  .header-main::after {
+    content: none !important;
+  }
+  .header-main .keep-word {
+    display: inline-block;
+    white-space: nowrap;
+    padding-bottom: 0.18em;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82));
+    background-repeat: no-repeat;
+    background-size: 100% 4px;
+    background-position: 0 calc(100% - 0.01em);
+  }
+
+  @media (max-width: 700px) {
     .header-main {
-      font-size: 36px;
-      padding-bottom: 14px;
+      line-height: 1.18;
+      letter-spacing: -0.045em;
     }
-    .header-main::after {
-      height: 5px;
+    .header-main .keep-word {
+      padding-bottom: 0.16em;
+      margin-bottom: 0.1em;
+      background-size: 100% 3px;
+      background-position: 0 calc(100% - 0.02em);
     }
-    .header-chapter { font-size: 11px; letter-spacing: 0.14em; }
-    .phase-panel,
-    .guide {
-      padding: 18px 18px 20px;
-      border-radius: 22px;
-    }
-    .phase-description { font-size: 16px; }
-    .phase-header { margin-bottom: 12px; }
-    .controls { gap: 8px; }
-    .controls-label { width: 100%; margin-right: 0; }
-    .btn {
-      font-size: 12px;
-      padding: 9px 12px;
-      border-radius: 14px;
-    }
-    .guide-icon { width: 26px; height: 26px; font-size: 12px; }
-    .guide-title { font-size: 16px; }
-    .guide-list li { font-size: 15px; }
-    .page-container,
-    .quiz-container,
-    .popup-card,
-    .zoom-info,
-    .zoom-image-box {
-      border-radius: 22px;
-    }
-    .quiz-container { padding: 24px 18px; }
-    .q-text { font-size: 18px; }
-    .hotspot .dot { width: 13px; height: 13px; }
-    .hotspot.major .dot { width: 16px; height: 16px; }
-    .popup-card { padding: 28px 24px; }
-    .zoom-viewer { padding: 12px; }
-    .zoom-content { gap: 16px; }
-    .zoom-info { padding: 22px 22px; }
   }
 
 </style>
@@ -1090,14 +1608,14 @@ button,
       <div class="header">
         <div class="header-title">
           <div class="header-chapter">3. 왜란과 호란 · 02</div>
-          <div class="header-main">임진왜란을 극복하다</div>
+          <div class="header-main"><span class="keep-word">임진왜란을</span> <span class="keep-word">극복하다</span></div>
         </div>
       </div>
 
       <!-- 원본 PDF 페이지 -->
       <div class="page-container">
         <div class="page-wrapper" id="pageWrapper">
-          <img class="page-bg" id="pageBg" src="assets/page-main.jpg" alt="임진왜란을 극복하다 교과서 페이지">
+          <img class="page-bg" id="pageBg" src="assets/media-01.jpg" alt="임진왜란을 극복하다 교과서 페이지" decoding="async" fetchpriority="high">
           <div class="page-overlay" id="overlay"></div>
         </div>
       </div>
@@ -1106,14 +1624,20 @@ button,
     <aside class="side-column">
       <!-- 사용 방법 -->
       <div class="guide">
-        <span class="guide-icon">?</span>
         <div class="guide-content">
-          <div class="guide-title">사용 방법</div>
+          <div class="guide-title">
+            <span class="title-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M6 3a2 2 0 0 0-2 2v14.2A1.8 1.8 0 0 0 5.8 21H20V5a2 2 0 0 0-2-2H6Zm2.2 3h7.6a.8.8 0 1 1 0 1.6H8.2a.8.8 0 0 1 0-1.6Zm0 3.8h7.6a.8.8 0 1 1 0 1.6H8.2a.8.8 0 0 1 0-1.6Zm0 3.8H13a.8.8 0 1 1 0 1.6H8.2a.8.8 0 0 1 0-1.6Zm-2.4 5.8c0-.64.52-1.16 1.16-1.16H18.4V19.4H6.96A1.16 1.16 0 0 1 5.8 18.24Z"/>
+              </svg>
+            </span>
+            <span>사용 방법</span>
+          </div>
           <ul class="guide-list">
-            <li>지도 위의 <strong>붉은 원</strong>을 클릭하면 지역별 상세 설명이 열립니다.</li>
+            <li>아래의 <strong>침입 경로</strong> 패널에서 시기별 버튼을 눌러 일본군의 침입 전개를 단계적으로 확인하세요.</li>
+            <li>왼쪽의 <strong>지도 위 원형 버튼</strong>을 클릭하면 지역별 상세 설명과 관련 이미지 자료가 열립니다.</li>
             <li><strong>동래부 순절도</strong> 위에 붉게 오버레이된 <strong>클릭하여 확대</strong> 버튼을 누르면 확대 화면으로 자세히 볼 수 있습니다.</li>
-            <li><strong>이순신 · 곽재우 · 권율</strong> 이름 위에 붉게 오버레이된 영역을 클릭하면 인물 카드가 나타납니다.</li>
-            <li>오른쪽의 <strong>침입 경로</strong> 패널에서 시기별 버튼을 눌러 일본군의 침입 전개를 단계적으로 확인하세요.</li>
+            <li>지도 상단의 <strong>이순신 · 곽재우 · 권율</strong> 이름 위 붉은 강조 영역을 클릭하면 인물 카드가 나타납니다.</li>
           </ul>
         </div>
       </div>
@@ -1121,16 +1645,29 @@ button,
       <!-- 침입 경로 카테고리 -->
       <div class="phase-panel">
         <div class="phase-header">
-          <div class="phase-badge">침입 경로</div>
-          <div class="phase-description">오른쪽 패널의 시기별 버튼을 눌러 임진왜란 초기 일본군의 침입 흐름을 단계적으로 확인하세요.</div>
+          <div class="phase-badge">
+            <span class="title-icon route" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M6.2 18.8a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Zm11.6-9.6a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4ZM7 16.2h4.1c3.3 0 6-2.7 6-6V8.9h-1.9l2.8-3.1 2.8 3.1h-1.9v1.3c0 4.38-3.55 7.93-7.93 7.93H7v-1.93Z"/>
+              </svg>
+            </span>
+            <span>침입 경로</span>
+          </div>
+          <div class="phase-description">아래의 시기별 버튼을 눌러 임진왜란 초기 일본군의 침입 흐름을 단계적으로 확인하고, 지도 위 원형 버튼을 눌러 상세 설명을 살펴보세요.</div>
         </div>
         <div class="controls">
           <span class="controls-label">시기 선택</span>
-          <button class="btn active" data-phase="all"><span class="btn-dot"></span>전체</button>
-          <button class="btn" data-phase="1">1592.4 상륙</button>
-          <button class="btn" data-phase="2">1592.5 한성 함락</button>
-          <button class="btn" data-phase="3">1592.6 평양 함락</button>
-          <button class="btn" data-phase="reset">초기화</button>
+          <div class="controls-toolbar">
+            <button class="btn btn-utility active" data-phase="all"><span class="btn-dot"></span>전체 보기</button>
+            <button class="btn btn-utility" data-phase="reset">초기화</button>
+          </div>
+          <div class="timeline-flow" role="group" aria-label="침입 시기 흐름">
+            <button class="btn btn-step" data-phase="1"><span class="step-date">1592.4</span><span class="step-label">부산 상륙</span></button>
+            <span class="timeline-arrow" aria-hidden="true">↓</span>
+            <button class="btn btn-step" data-phase="2"><span class="step-date">1592.5</span><span class="step-label">한성 함락</span></button>
+            <span class="timeline-arrow" aria-hidden="true">↓</span>
+            <button class="btn btn-step" data-phase="3"><span class="step-date">1592.6</span><span class="step-label">평양 함락</span></button>
+          </div>
         </div>
       </div>
     </aside>
@@ -1138,10 +1675,13 @@ button,
 </div>
 
 <!-- 퀴즈 -->
+<div class="layout-shell quiz-shell">
 <div class="quiz-container">
   <div class="quiz-header">
-    <div class="quiz-header-badge">SELF CHECK</div>
-    <h2>학습 확인</h2>
+    <div class="quiz-header-top">
+      <div class="quiz-header-badge">SELF CHECK</div>
+      <h2>학습 확인</h2>
+    </div>
     <p>네 문제를 풀어보며 배운 내용을 정리해봅시다.</p>
   </div>
 
@@ -1200,6 +1740,7 @@ button,
     </div>
   </div>
 </div>
+</div>
 
 <footer>
   WM 역사B형 · 3단원 왜란과 호란 · 02 임진왜란을 극복하다
@@ -1212,42 +1753,53 @@ button,
     <div class="popup-badge" id="popupBadge">지역</div>
     <div class="popup-title" id="popupTitle"></div>
     <div class="popup-date" id="popupDate"></div>
+    <figure class="popup-media" id="popupMedia" hidden>
+      <img id="popupImage" alt="">
+      <figcaption id="popupCaption"></figcaption>
+    </figure>
     <div class="popup-body" id="popupBody"></div>
   </div>
 </div>
 
-<!-- 확대 뷰어 (동래부 순절도) -->
+
+<!-- 동래부 순절도 팝업 뷰어 -->
 <div class="zoom-viewer" id="zoomViewer">
   <button class="zoom-close-btn" id="zoomClose" aria-label="닫기">×</button>
   <div class="zoom-content">
-    <div class="zoom-image-box">
-      <img src="assets/dongnae-detail.jpg" alt="동래부 순절도 확대">
-    </div>
-    <div class="zoom-info">
-      <div class="badge">기록화 · 보물</div>
-      <h2>동래부 순절도</h2>
-      <div class="subtitle">東萊府殉節圖 · 육군박물관 소장</div>
-
-      <h3>그림의 배경</h3>
-      <p>1592년 4월 15일, 임진왜란 초기 일본군이 부산에 상륙한 바로 다음 날 벌어진 <strong>동래성 전투</strong>를 그린 기록화입니다. 18세기 화원 <strong>변박(卞璞)</strong>이 1760년에 그린 작품으로, 160여 년 전 사건을 생생하게 재현했습니다.</p>
-
-      <h3>송상현의 순절</h3>
-      <p>동래부사 <strong>송상현</strong>은 일본군의 "길을 빌려달라"는 요구에 "<strong>싸워 죽기는 쉬우나 길을 빌려주기는 어렵다(戰死易, 假道難)</strong>"는 여섯 글자의 답을 보냈습니다. 그는 관복을 갖춰 입고 남문 위에 정좌한 채 끝까지 저항하다 순절했습니다.</p>
-
-      <h3>그림 속에 담긴 장면</h3>
-      <p>성 안에서는 조선 군민이 필사적으로 맞서 싸우고, 성 밖은 붉은 깃발과 투구를 쓴 일본군이 빽빽이 둘러싸고 있습니다. 남문 위에는 관복을 입은 송상현이 단정히 앉아 있고, 여인들이 지붕 위에서 기왓장을 던지는 모습도 보입니다. 당시 항전의 처절함과 백성들의 저항 의식이 한 화면에 응축되어 있습니다.</p>
-
-      <div class="zoom-quote">
-        "적선이 바다를 덮고 몰려왔다. …… 태평한 세월이 200년 동안 이어져 백성들은 전쟁을 몰랐고 각 고을은 소문만 듣고도 놀라 무너졌다."
-        <cite>— 『선조실록』</cite>
+    <div class="dongnae-direct" id="dongnaeDirect">
+      <div class="dongnae-direct-header">
+        <h2>동래부 순절도</h2>
+        <p>화면의 번호를 누르면 장면별 상세 설명이 열립니다.</p>
+        <div class="dongnae-direct-divider"></div>
       </div>
-
-      <h3>역사적 의의</h3>
-      <p>동래성 전투는 조선군이 수적 열세에도 굴하지 않고 결사 항전한 상징적 사건으로 기록되었습니다. 송상현의 순절은 이후 의병 운동의 정신적 뿌리가 되었으며, 「동래부 순절도」는 임진왜란 초기 전투 양상을 보여주는 가장 귀중한 시각 자료 중 하나로 평가됩니다.</p>
-
-      <div class="zoom-meta">
-        <span>비단에 채색 · 세로 145cm × 가로 96cm</span>
-        <span>보물 제392호</span>
+      <img id="dng-si1" src="assets/media-02.gif" alt="" hidden>
+      <img id="dng-si2" src="assets/media-03.gif" alt="" hidden>
+      <img id="dng-si3" src="assets/media-04.gif" alt="" hidden>
+      <img id="dng-si4" src="assets/media-05.gif" alt="" hidden>
+      <img id="dng-si5" src="assets/media-06.gif" alt="" hidden>
+      <div class="dongnae-direct-stage">
+        <div class="dongnae-direct-frame">
+          <img class="dongnae-direct-main" src="assets/media-07.jpg" alt="동래부 순절도 전체 그림">
+          <button type="button" class="dng-hotspot" data-scene="1" data-summary="이각과 몇몇 조선군이 도망가는 모습" style="left:7.4%;top:25.8%;width:15.2%;height:9.8%;" aria-label="장면 ① · 이각과 몇몇 조선군이 도망가는 모습"><span class="dng-hotspot-badge">①</span></button>
+          <button type="button" class="dng-hotspot" data-scene="2" data-summary="지붕 위 아낙네들이 기왓장을 던지는 모습" style="left:24.8%;top:54.6%;width:15.8%;height:10.2%;" aria-label="장면 ② · 지붕 위 아낙네들이 기왓장을 던지는 모습"><span class="dng-hotspot-badge">②</span></button>
+          <button type="button" class="dng-hotspot" data-scene="3" data-summary="송상현이 나무패를 일본군에게 던지는 모습" style="left:32.1%;top:67.4%;width:15.4%;height:10.6%;" aria-label="장면 ③ · 송상현이 나무패를 일본군에게 던지는 모습"><span class="dng-hotspot-badge">③</span></button>
+          <button type="button" class="dng-hotspot" data-scene="4" data-summary="일본군이 동쪽 벽을 무너뜨리고 성안으로 진입하는 모습" style="left:67.4%;top:37.3%;width:17.2%;height:11.4%;" aria-label="장면 ④ · 일본군이 동쪽 벽을 무너뜨리고 성안으로 진입하는 모습"><span class="dng-hotspot-badge">④</span></button>
+          <button type="button" class="dng-hotspot" data-scene="5" data-summary="동래성 함락 직전 송상현이 왕께 마지막 예를 올리는 모습" style="left:39.5%;top:44.3%;width:14.8%;height:9.8%;" aria-label="장면 ⑤ · 동래성 함락 직전 송상현이 왕께 마지막 예를 올리는 모습"><span class="dng-hotspot-badge">⑤</span></button>
+        </div>
+      </div>
+      <div class="dng-scene-modal" id="dngSceneModal" data-empty="true" aria-hidden="false">
+        <div class="dng-scene-box">
+          <div class="dng-scene-img-wrap" id="dngImgWrap">
+            <div class="dng-scene-badge" id="dngModalBadge">안내</div>
+            <button type="button" class="dng-scene-close" id="dngSceneClose" aria-label="설명 패널 초기화">×</button>
+            <div class="dng-scene-spinner" aria-hidden="true"></div>
+            <img class="dng-scene-img" id="dngSceneImg" alt="">
+          </div>
+          <div class="dng-scene-desc">
+            <h3 id="dngModalTitle">장면을 선택해 보세요</h3>
+            <p id="dngModalText">왼쪽 동래부 순절도의 오버레이 버튼을 누르면, 해당 확대 이미지와 설명이 이곳에 함께 표시됩니다.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1274,7 +1826,7 @@ button,
     { key: 'hoeryong',  x: 76.5, y: 31.5, phase: 3, major: false,
       title: '회령', date: '1592년 7월',
       body: '가토 기요마사(加藤淸正)가 이끄는 일본군 제2군은 함경도 방면으로 북상하여 회령까지 진출했습니다. 이곳에서 두 왕자(임해군·순화군)가 현지인들에 의해 일본군에 넘겨지는 사건이 있었습니다. 이후 의병과 관군의 반격으로 일본군은 남쪽으로 밀려났습니다.' },
-    { key: 'hansando',  x: 70, y: 78, phase: 0, major: false,
+    { key: 'hansando',  x: 70, y: 78, phase: 1, major: false,
       title: '한산도', date: '1592년 7월 8일 · 한산도 대첩',
       body: '이순신 장군이 학익진(鶴翼陣) 전법을 구사하여 일본 수군을 대파한 역사적인 해전이 벌어진 곳입니다. 이 승리로 일본군의 서해 진출이 좌절되었고, 보급로가 끊기면서 전세가 역전되는 결정적 계기가 되었습니다. 진주대첩·행주대첩과 함께 임진왜란 3대첩으로 꼽힙니다.' },
     { key: 'gaeseong',  x: 57.5, y: 58.5, phase: 2, major: false,
@@ -1288,18 +1840,38 @@ button,
       body: '규슈 북단에 위치한 나고야는 도요토미 히데요시가 조선 침략을 위해 세운 전진 기지입니다. 여기서 쓰시마를 거쳐 부산으로 건너간 일본군은 총 15만 8천여 명에 달했습니다. 현재의 나고야(名古屋)와는 다른 지역입니다.' }
   ];
 
+  const placeImages = {"busan": {"image": "assets/media-08.jpg", "imageAlt": "부산진 전투를 묘사한 기록화", "imageCaption": "부산진 전투를 묘사한 기록화"}, "dongnae": {"image": "assets/media-09.jpg", "imageAlt": "동래부 순절도 일부", "imageCaption": "동래성 전투를 그린 「동래부 순절도」"}, "hanseong": {"image": "assets/media-10.jpg", "imageAlt": "서울 도심과 한양도성 전경", "imageCaption": "한양도성에서 바라본 서울 도심 전경"}, "pyongyang": {"image": "assets/media-11.jpg", "imageAlt": "평양 시가지 파노라마", "imageCaption": "대동강 일대의 평양 시가지 파노라마"}, "uiju": {"image": "assets/media-12.jpg", "imageAlt": "압록강 너머에서 본 의주 일대", "imageCaption": "압록강 너머에서 바라본 의주 일대"}, "hoeryong": {"image": "assets/media-13.jpg", "imageAlt": "회령 시내 전경", "imageCaption": "회령 시내 전경"}, "hansando": {"image": "assets/media-14.jpg", "imageAlt": "한산도 해안과 바다 풍경", "imageCaption": "한산도 해역 전경"}, "gaeseong": {"image": "assets/media-15.jpg", "imageAlt": "개성 남대문", "imageCaption": "개성의 대표 유적 남대문"}, "tsushima": {"image": "assets/media-16.jpg", "imageAlt": "쓰시마 섬 위성 사진", "imageCaption": "한반도와 일본 사이의 쓰시마 섬 위성 사진"}, "nagoya": {"image": "assets/media-17.jpg", "imageAlt": "히젠 나고야성 유적", "imageCaption": "도요토미 히데요시의 출병 기지였던 히젠 나고야성 유적"}};
+
+  placeImages.pyongyang = {
+    image: "assets/media-18.jpg",
+    imageAlt: "평양성 전투도",
+    imageCaption: "평양성 전투를 그린 사료성 회화 이미지"
+  };
+  places.forEach(place => Object.assign(place, placeImages[place.key] || {}));
+
   // 인물 이름 좌표 (페이지 이미지 기준 퍼센트)
   // "이순신, 곽재우, 권율"은 한 줄로 y≈42에 있음
   const figures = [
     { key: 'yi',   x: 14, y: 40.5, w: 4.5, h: 1.6,
       title: '이순신', date: '李舜臣 · 1545~1598 · 삼도수군통제사',
-      body: '임진왜란에서 조선 수군을 이끌며 해전사에 빛나는 승리를 거둔 명장입니다. 거북선을 개발·활용하였으며, 옥포해전을 시작으로 사천·당포·한산도·명량·노량 등 크고 작은 해전에서 연전연승하였습니다. 한산도 대첩은 일본군의 서해 진출을 막아 전세를 뒤집는 결정적 승리였고, 1598년 노량해전에서 일본군을 추격하다 전사하였습니다. "필사즉생 필생즉사(必死則生 必生則死)"라는 말로 알려져 있습니다.' },
+      body: '임진왜란에서 조선 수군을 이끌며 해전사에 빛나는 승리를 거둔 명장입니다. 거북선을 개발·활용하였으며, 옥포해전을 시작으로 사천·당포·한산도·명량·노량 등 크고 작은 해전에서 연전연승하였습니다. 한산도 대첩은 일본군의 서해 진출을 막아 전세를 뒤집는 결정적 승리였고, 1598년 노량해전에서 일본군을 추격하다 전사하였습니다. "필사즉생 필생즉사(必死則生 必生則死)"라는 말로 알려져 있습니다.',
+      image: 'assets/media-19.jpg',
+      imageAlt: '이순신 초상',
+      imageCaption: '이순신 초상 이미지' },
     { key: 'gwak', x: 18.5, y: 40.5, w: 4.5, h: 1.6,
       title: '곽재우', date: '郭再祐 · 1552~1617 · 홍의장군',
-      body: '경상도 의령에서 임진왜란 발발 직후 가장 먼저 의병을 일으킨 인물입니다. 붉은 옷을 입고 백마를 탄 채 전투에 나서 "홍의장군(紅衣將軍)"이라 불렸습니다. 낙동강 유역에서 일본군의 서진(西進)을 저지하는 활약을 펼쳤으며, 관군과 긴밀히 협력하여 경상우도를 방어했습니다. 전쟁 후에는 벼슬을 사양하고 은거하였습니다.' },
+      body: '경상도 의령에서 임진왜란 발발 직후 가장 먼저 의병을 일으킨 인물입니다. 붉은 옷을 입고 백마를 탄 채 전투에 나서 "홍의장군(紅衣將軍)"이라 불렸습니다. 낙동강 유역에서 일본군의 서진(西進)을 저지하는 활약을 펼쳤으며, 관군과 긴밀히 협력하여 경상우도를 방어했습니다. 전쟁 후에는 벼슬을 사양하고 은거하였습니다.',
+      image: 'assets/media-20.jpg',
+      imageAlt: '곽재우 유물 말안장',
+      imageCaption: '곽재우 관련 유물로 전하는 말안장 사진' },
     { key: 'gwon', x: 22.8, y: 40.5, w: 3.5, h: 1.6,
       title: '권율', date: '權慄 · 1537~1599 · 도원수',
-      body: '임진왜란 당시 조선 육군을 총지휘한 도원수입니다. 1593년 2월 행주산성에서 약 2,300명의 병력으로 3만 명의 일본군을 물리친 행주대첩의 주인공으로 유명합니다. 행주대첩은 이치전투·웅치전투와 더불어 조선 육군이 거둔 대표적 승리로, 한산도 대첩·진주대첩과 함께 임진왜란 3대첩에 꼽힙니다. 이때 부녀자들이 치마로 돌을 날라 병사들에게 전달했다는 "행주치마" 일화가 전해집니다.' }
+      body: '임진왜란 당시 조선 육군을 총지휘한 도원수입니다. 1593년 2월 행주산성에서 약 2,300명의 병력으로 3만 명의 일본군을 물리친 행주대첩의 주인공으로 유명합니다. 행주대첩은 이치전투·웅치전투와 더불어 조선 육군이 거둔 대표적 승리로, 한산도 대첩·진주대첩과 함께 임진왜란 3대첩에 꼽힙니다. 이때 부녀자들이 치마로 돌을 날라 병사들에게 전달했다는 "행주치마" 일화가 전해집니다.',
+      image: 'assets/media-21.jpg',
+      fallbackImage: 'assets/media-22.jpg',
+      imageAlt: '권율 영정',
+      imageCaption: '권율 영정 이미지',
+      fallbackCaption: '권율 동상 이미지' }
   ];
 
   // 동래부 순절도 영역
@@ -1326,15 +1898,16 @@ button,
   });
 
   // 인물 클릭 영역
-  figures.forEach(fig => {
+  figures.forEach((fig, index) => {
     const zone = document.createElement('div');
     zone.className = 'figure-zone';
+    zone.dataset.label = `인물${index + 1}`;
     zone.style.left = fig.x + '%';
     zone.style.top = fig.y + '%';
     zone.style.width = fig.w + '%';
     zone.style.height = fig.h + '%';
     zone.style.transform = 'translateY(-50%)';
-    zone.title = fig.title;
+    zone.title = `${fig.title} (인물${index + 1})`;
     zone.addEventListener('click', () => showPopup(fig, '인물'));
     overlay.appendChild(zone);
   });
@@ -1346,10 +1919,7 @@ button,
   dongnae.style.top = dongnaeArea.y + '%';
   dongnae.style.width = dongnaeArea.w + '%';
   dongnae.style.height = dongnaeArea.h + '%';
-  dongnae.addEventListener('click', () => {
-    document.getElementById('zoomViewer').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  });
+  dongnae.addEventListener('click', openDongnaeViewer);
   overlay.appendChild(dongnae);
 
   // 팝업
@@ -1358,12 +1928,47 @@ button,
   const popupTitle = document.getElementById('popupTitle');
   const popupDate = document.getElementById('popupDate');
   const popupBody = document.getElementById('popupBody');
+  const popupMedia = document.getElementById('popupMedia');
+  const popupImage = document.getElementById('popupImage');
+  const popupCaption = document.getElementById('popupCaption');
 
   function showPopup(data, badge) {
     popupBadge.textContent = badge || '지역';
     popupTitle.textContent = data.title;
     popupDate.textContent = data.date;
     popupBody.textContent = data.body;
+
+    popupImage.onerror = null;
+    if (data.image) {
+      popupImage.src = data.image;
+      popupImage.alt = data.imageAlt || data.title;
+      popupCaption.textContent = data.imageCaption || '관련 이미지 자료';
+      popupMedia.hidden = false;
+      popupImage.onerror = () => {
+        if (data.fallbackImage && popupImage.src !== data.fallbackImage) {
+          popupImage.src = data.fallbackImage;
+          popupImage.alt = data.fallbackAlt || data.imageAlt || data.title;
+          popupCaption.textContent = data.fallbackCaption || data.imageCaption || '관련 이미지 자료';
+          popupImage.onerror = () => {
+            popupImage.removeAttribute('src');
+            popupImage.alt = '';
+            popupCaption.textContent = '';
+            popupMedia.hidden = true;
+          };
+        } else {
+          popupImage.removeAttribute('src');
+          popupImage.alt = '';
+          popupCaption.textContent = '';
+          popupMedia.hidden = true;
+        }
+      };
+    } else {
+      popupImage.removeAttribute('src');
+      popupImage.alt = '';
+      popupCaption.textContent = '';
+      popupMedia.hidden = true;
+    }
+
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -1374,16 +1979,103 @@ button,
   document.getElementById('popupClose').onclick = closePopup;
   popup.onclick = (e) => { if (e.target === popup) closePopup(); };
 
+
   // 확대 뷰어
   const zoomViewer = document.getElementById('zoomViewer');
+  const dongnaeDirect = document.getElementById('dongnaeDirect');
+  const dngSceneModal = document.getElementById('dngSceneModal');
+  const dngImgWrap = document.getElementById('dngImgWrap');
+  const dngSceneImg = document.getElementById('dngSceneImg');
+  const dngModalBadge = document.getElementById('dngModalBadge');
+  const dngModalTitle = document.getElementById('dngModalTitle');
+  const dngModalText = document.getElementById('dngModalText');
+  const dngScenes = {1:{title:'① 조선군의 도주',       text:'절도사 이각(李珏)과 몇몇 조선군 병사들이 성문을 버리고 달아나는 장면입니다. 일본군의 급격한 공세에 지휘 체계가 무너지면서 일부 군사들이 도망쳤으며, 이는 당시 혼란과 동시에 끝까지 저항한 이들의 의지를 더욱 부각시킵니다.', sid:'si1'},
+  2:{title:'② 지붕 위 아낙네들의 항전', text:'성 안 지붕 위에서 아낙네들이 일본군을 향해 기왓장을 던지는 장면입니다. 무기도 없이 일상의 물건으로 싸운 백성들의 자발적 항전 의지를 보여주며, 동래성 전투가 군인만의 싸움이 아니었음을 증언합니다.', sid:'si2'},
+  3:{title:'③ 송상현의 나무패 투척',  text:'동래부사 송상현(宋象賢)이 "싸워 죽기는 쉬우나, 길을 빌려주기는 어렵다(戰死易 假道難)"라는 글귀를 새긴 나무패를 일본군에게 던지는 모습입니다. 항복을 권유하는 일본군의 요구를 단호히 거부한 결기를 상징적으로 표현한 장면입니다.', sid:'si3'},
+  4:{title:'④ 일본군의 동쪽 성벽 돌파', text:'일본군이 동래성 동쪽 성벽을 무너뜨리고 성 안으로 밀려드는 장면입니다. 압도적인 병력과 조총으로 무장한 왜군이 성벽을 돌파하는 순간으로, 1592년 4월 15일(음력) 동래성이 함락되는 결정적 전황을 묘사합니다.', sid:'si4'},
+  5:{title:'⑤ 송상현의 마지막 예',   text:'동래성이 함락 직전의 순간, 동래부사 송상현이 북쪽 임금이 계신 방향을 향해 마지막으로 큰 절을 올리는 장면입니다. 죽음을 앞두고도 충절을 잃지 않은 그의 모습은 후대에 길이 전해지는 의로운 죽음의 표상이 되었습니다.', sid:'si5'},};
+  const dngNums = ['', '①', '②', '③', '④', '⑤'];
+
+  const dngDefaultState = {
+    badge: '안내',
+    title: '장면을 선택해 보세요',
+    text: '왼쪽 동래부 순절도의 오버레이 버튼을 누르면, 해당 확대 이미지와 설명이 이곳에 함께 표시됩니다.'
+  };
+
+  function setActiveDongnaeScene(sceneNumber) {
+    dongnaeDirect.querySelectorAll('.dng-hotspot[data-scene]').forEach(el => {
+      const isActive = parseInt(el.dataset.scene, 10) === sceneNumber;
+      el.classList.toggle('active', isActive);
+    });
+  }
+
+  function resetDongnaeScene() {
+    dngSceneModal.classList.remove('active');
+    dngSceneModal.dataset.empty = 'true';
+    dngSceneModal.setAttribute('aria-hidden', 'false');
+    dngModalBadge.textContent = dngDefaultState.badge;
+    dngModalTitle.textContent = dngDefaultState.title;
+    dngModalText.textContent = dngDefaultState.text;
+    dngImgWrap.classList.remove('loading');
+    dngSceneImg.onload = null;
+    dngSceneImg.onerror = null;
+    dngSceneImg.removeAttribute('src');
+    dngSceneImg.alt = '';
+    setActiveDongnaeScene(null);
+  }
+
+  function openDongnaeViewer() {
+    zoomViewer.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    resetDongnaeScene();
+  }
+
+  function closeDongnaeScene() {
+    resetDongnaeScene();
+  }
+
+  function openDongnaeScene(n) {
+    const scene = dngScenes[n];
+    if (!scene) return;
+
+    dngSceneModal.classList.add('active');
+    dngSceneModal.dataset.empty = 'false';
+    dngSceneModal.setAttribute('aria-hidden', 'false');
+    dngModalBadge.textContent = '장면 ' + dngNums[n];
+    dngModalTitle.textContent = scene.title;
+    dngModalText.textContent = scene.text;
+    dngImgWrap.classList.add('loading');
+    dngSceneImg.onload = () => dngImgWrap.classList.remove('loading');
+    dngSceneImg.onerror = () => dngImgWrap.classList.remove('loading');
+    dngSceneImg.src = document.getElementById('dng-' + scene.sid).src;
+    dngSceneImg.alt = scene.title;
+    setActiveDongnaeScene(n);
+
+    if (window.innerWidth <= 1100) {
+      dngSceneModal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   function closeZoom() {
     zoomViewer.classList.remove('active');
     document.body.style.overflow = '';
+    resetDongnaeScene();
   }
+
   document.getElementById('zoomClose').onclick = closeZoom;
-  // 이미지/정보 영역 외부 클릭 시 닫기
+  document.getElementById('dngSceneClose').onclick = closeDongnaeScene;
   zoomViewer.addEventListener('click', (e) => {
     if (e.target === zoomViewer) closeZoom();
+  });
+  dongnaeDirect.querySelectorAll('[data-scene]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openDongnaeScene(parseInt(el.dataset.scene, 10));
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!zoomViewer.classList.contains('active')) return;
+    if (e.key === 'Escape') closeZoom();
   });
 
   // 시기별 경로 보기
