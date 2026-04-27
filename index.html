@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#1959b3">
 <meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#1959b3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="mobile-web-app-capable" content="yes">
 <title>임진왜란을 극복하다 | 디지털 학습자료</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 
   :root {
@@ -58,14 +60,16 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-* { -webkit-tap-highlight-color: transparent; }
-  html, body { width: 100%; overflow-x: hidden; }
-  img, svg, video, canvas { max-width: 100%; }
-  button, [role="button"], .btn, .hotspot, .figure-zone, .dongnae-zone, .popup-close, .zoom-close-btn, .dng-hotspot {
-    touch-action: manipulation;
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body, button, input, textarea, select {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
-  html { scroll-behavior: smooth; }
+  button, .btn, .hotspot, .figure-zone, .dongnae-zone, .popup-close, .zoom-close-btn, .q-option, .dng-hotspot {
+    touch-action: manipulation;
+  }
 
   body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -114,7 +118,7 @@
   }
   .content-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 348px;
+    grid-template-columns: minmax(0, 1fr) 332px;
     gap: 24px;
     align-items: start;
   }
@@ -127,7 +131,7 @@
     gap: 18px;
     position: -webkit-sticky;
     position: sticky;
-    top: 24px;
+    top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
     align-self: start;
     height: fit-content;
   }
@@ -1291,7 +1295,7 @@
     margin: 22px auto 0;
   }
   .quiz-container {
-    width: calc(100% - 372px);
+    width: calc(100% - 356px);
     max-width: 1048px;
     margin: 0;
     background: var(--surface);
@@ -1477,7 +1481,7 @@
     letter-spacing: 0.05em;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 940px) {
     .content-grid {
       grid-template-columns: 1fr;
     }
@@ -1486,7 +1490,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      height: auto;
     }
     .quiz-container {
       width: 100%;
@@ -1500,8 +1503,6 @@
     .side-column {
       display: flex;
       gap: 16px;
-      position: static;
-      height: auto;
     }
     .header {
     position: relative;
@@ -1603,6 +1604,8 @@
     }
   }
 
+}
+
 </style>
 </head>
 <body>
@@ -1621,7 +1624,7 @@
       <!-- 원본 PDF 페이지 -->
       <div class="page-container">
         <div class="page-wrapper" id="pageWrapper">
-          <img class="page-bg" id="pageBg" src="assets/media-01.jpg" alt="임진왜란을 극복하다 교과서 페이지" decoding="async" fetchpriority="high">
+          <img class="page-bg" id="pageBg" src="assets/page-main.jpg" alt="임진왜란을 극복하다 교과서 페이지">
           <div class="page-overlay" id="overlay"></div>
         </div>
       </div>
@@ -1778,14 +1781,14 @@
         <p>화면의 번호를 누르면 장면별 상세 설명이 열립니다.</p>
         <div class="dongnae-direct-divider"></div>
       </div>
-      <img id="dng-si1" src="assets/media-02.gif" alt="" hidden>
-      <img id="dng-si2" src="assets/media-03.gif" alt="" hidden>
-      <img id="dng-si3" src="assets/media-04.gif" alt="" hidden>
-      <img id="dng-si4" src="assets/media-05.gif" alt="" hidden>
-      <img id="dng-si5" src="assets/media-06.gif" alt="" hidden>
+      <img id="dng-si1" src="assets/dongnae-scene-1.gif" alt="" hidden>
+      <img id="dng-si2" src="assets/dongnae-scene-2.gif" alt="" hidden>
+      <img id="dng-si3" src="assets/dongnae-scene-3.gif" alt="" hidden>
+      <img id="dng-si4" src="assets/dongnae-scene-4.gif" alt="" hidden>
+      <img id="dng-si5" src="assets/dongnae-scene-5.gif" alt="" hidden>
       <div class="dongnae-direct-stage">
         <div class="dongnae-direct-frame">
-          <img class="dongnae-direct-main" src="assets/media-07.jpg" alt="동래부 순절도 전체 그림">
+          <img class="dongnae-direct-main" src="assets/dongnae-main.jpg" alt="동래부 순절도 전체 그림">
           <button type="button" class="dng-hotspot" data-scene="1" data-summary="이각과 몇몇 조선군이 도망가는 모습" style="left:7.4%;top:25.8%;width:15.2%;height:9.8%;" aria-label="장면 ① · 이각과 몇몇 조선군이 도망가는 모습"><span class="dng-hotspot-badge">①</span></button>
           <button type="button" class="dng-hotspot" data-scene="2" data-summary="지붕 위 아낙네들이 기왓장을 던지는 모습" style="left:24.8%;top:54.6%;width:15.8%;height:10.2%;" aria-label="장면 ② · 지붕 위 아낙네들이 기왓장을 던지는 모습"><span class="dng-hotspot-badge">②</span></button>
           <button type="button" class="dng-hotspot" data-scene="3" data-summary="송상현이 나무패를 일본군에게 던지는 모습" style="left:32.1%;top:67.4%;width:15.4%;height:10.6%;" aria-label="장면 ③ · 송상현이 나무패를 일본군에게 던지는 모습"><span class="dng-hotspot-badge">③</span></button>
@@ -1846,10 +1849,10 @@
       body: '규슈 북단에 위치한 나고야는 도요토미 히데요시가 조선 침략을 위해 세운 전진 기지입니다. 여기서 쓰시마를 거쳐 부산으로 건너간 일본군은 총 15만 8천여 명에 달했습니다. 현재의 나고야(名古屋)와는 다른 지역입니다.' }
   ];
 
-  const placeImages = {"busan": {"image": "assets/media-08.jpg", "imageAlt": "부산진 전투를 묘사한 기록화", "imageCaption": "부산진 전투를 묘사한 기록화"}, "dongnae": {"image": "assets/media-09.jpg", "imageAlt": "동래부 순절도 일부", "imageCaption": "동래성 전투를 그린 「동래부 순절도」"}, "hanseong": {"image": "assets/media-10.jpg", "imageAlt": "서울 도심과 한양도성 전경", "imageCaption": "한양도성에서 바라본 서울 도심 전경"}, "pyongyang": {"image": "assets/media-11.jpg", "imageAlt": "평양 시가지 파노라마", "imageCaption": "대동강 일대의 평양 시가지 파노라마"}, "uiju": {"image": "assets/media-12.jpg", "imageAlt": "압록강 너머에서 본 의주 일대", "imageCaption": "압록강 너머에서 바라본 의주 일대"}, "hoeryong": {"image": "assets/media-13.jpg", "imageAlt": "회령 시내 전경", "imageCaption": "회령 시내 전경"}, "hansando": {"image": "assets/media-14.jpg", "imageAlt": "한산도 해안과 바다 풍경", "imageCaption": "한산도 해역 전경"}, "gaeseong": {"image": "assets/media-15.jpg", "imageAlt": "개성 남대문", "imageCaption": "개성의 대표 유적 남대문"}, "tsushima": {"image": "assets/media-16.jpg", "imageAlt": "쓰시마 섬 위성 사진", "imageCaption": "한반도와 일본 사이의 쓰시마 섬 위성 사진"}, "nagoya": {"image": "assets/media-17.jpg", "imageAlt": "히젠 나고야성 유적", "imageCaption": "도요토미 히데요시의 출병 기지였던 히젠 나고야성 유적"}};
+  const placeImages = {"busan": {"image": "assets/place-busan.jpg", "imageAlt": "부산진 전투를 묘사한 기록화", "imageCaption": "부산진 전투를 묘사한 기록화"}, "dongnae": {"image": "assets/place-dongnae.jpg", "imageAlt": "동래부 순절도 일부", "imageCaption": "동래성 전투를 그린 「동래부 순절도」"}, "hanseong": {"image": "assets/place-hanseong.jpg", "imageAlt": "서울 도심과 한양도성 전경", "imageCaption": "한양도성에서 바라본 서울 도심 전경"}, "pyongyang": {"image": "assets/place-pyongyang-a.jpg", "imageAlt": "평양 시가지 파노라마", "imageCaption": "대동강 일대의 평양 시가지 파노라마"}, "uiju": {"image": "assets/place-uiju.jpg", "imageAlt": "압록강 너머에서 본 의주 일대", "imageCaption": "압록강 너머에서 바라본 의주 일대"}, "hoeryong": {"image": "assets/place-hoeryong.jpg", "imageAlt": "회령 시내 전경", "imageCaption": "회령 시내 전경"}, "hansando": {"image": "assets/place-hansando.jpg", "imageAlt": "한산도 해안과 바다 풍경", "imageCaption": "한산도 해역 전경"}, "gaeseong": {"image": "assets/place-gaeseong.jpg", "imageAlt": "개성 남대문", "imageCaption": "개성의 대표 유적 남대문"}, "tsushima": {"image": "assets/place-tsushima.jpg", "imageAlt": "쓰시마 섬 위성 사진", "imageCaption": "한반도와 일본 사이의 쓰시마 섬 위성 사진"}, "nagoya": {"image": "assets/place-nagoya.jpg", "imageAlt": "히젠 나고야성 유적", "imageCaption": "도요토미 히데요시의 출병 기지였던 히젠 나고야성 유적"}};
 
   placeImages.pyongyang = {
-    image: "assets/media-18.jpg",
+    image: "assets/place-pyongyang-b.jpg",
     imageAlt: "평양성 전투도",
     imageCaption: "평양성 전투를 그린 사료성 회화 이미지"
   };
@@ -1861,20 +1864,20 @@
     { key: 'yi',   x: 14, y: 40.5, w: 4.5, h: 1.6,
       title: '이순신', date: '李舜臣 · 1545~1598 · 삼도수군통제사',
       body: '임진왜란에서 조선 수군을 이끌며 해전사에 빛나는 승리를 거둔 명장입니다. 거북선을 개발·활용하였으며, 옥포해전을 시작으로 사천·당포·한산도·명량·노량 등 크고 작은 해전에서 연전연승하였습니다. 한산도 대첩은 일본군의 서해 진출을 막아 전세를 뒤집는 결정적 승리였고, 1598년 노량해전에서 일본군을 추격하다 전사하였습니다. "필사즉생 필생즉사(必死則生 必生則死)"라는 말로 알려져 있습니다.',
-      image: 'assets/media-19.jpg',
+      image: 'assets/person-yi-sun-sin.jpg',
       imageAlt: '이순신 초상',
       imageCaption: '이순신 초상 이미지' },
     { key: 'gwak', x: 18.5, y: 40.5, w: 4.5, h: 1.6,
       title: '곽재우', date: '郭再祐 · 1552~1617 · 홍의장군',
       body: '경상도 의령에서 임진왜란 발발 직후 가장 먼저 의병을 일으킨 인물입니다. 붉은 옷을 입고 백마를 탄 채 전투에 나서 "홍의장군(紅衣將軍)"이라 불렸습니다. 낙동강 유역에서 일본군의 서진(西進)을 저지하는 활약을 펼쳤으며, 관군과 긴밀히 협력하여 경상우도를 방어했습니다. 전쟁 후에는 벼슬을 사양하고 은거하였습니다.',
-      image: 'assets/media-20.jpg',
+      image: 'assets/person-gwak-jae-u.jpg',
       imageAlt: '곽재우 유물 말안장',
       imageCaption: '곽재우 관련 유물로 전하는 말안장 사진' },
     { key: 'gwon', x: 22.8, y: 40.5, w: 3.5, h: 1.6,
       title: '권율', date: '權慄 · 1537~1599 · 도원수',
       body: '임진왜란 당시 조선 육군을 총지휘한 도원수입니다. 1593년 2월 행주산성에서 약 2,300명의 병력으로 3만 명의 일본군을 물리친 행주대첩의 주인공으로 유명합니다. 행주대첩은 이치전투·웅치전투와 더불어 조선 육군이 거둔 대표적 승리로, 한산도 대첩·진주대첩과 함께 임진왜란 3대첩에 꼽힙니다. 이때 부녀자들이 치마로 돌을 날라 병사들에게 전달했다는 "행주치마" 일화가 전해집니다.',
-      image: 'assets/media-21.jpg',
-      fallbackImage: 'assets/media-22.jpg',
+      image: 'assets/person-gwon-yul.jpg',
+      fallbackImage: 'assets/quiz-fallback.jpg',
       imageAlt: '권율 영정',
       imageCaption: '권율 영정 이미지',
       fallbackCaption: '권율 동상 이미지' }

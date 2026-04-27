@@ -1,22 +1,28 @@
-크로스플랫폼 배포용 패키지 안내
-
-이 폴더는 GitHub Pages 같은 정적 호스팅에 바로 올릴 수 있도록 정리한 버전입니다.
+임진왜란 디지털 학습자료 - GitHub Pages 배포용 패키지
 
 구성
-- index.html : 메인 파일
-- assets/ : HTML 안에 들어 있던 모든 base64 이미지/GIF를 분리한 폴더
-- .nojekyll : GitHub Pages용 설정 파일
-
-권장 사용법
-1. 이 폴더 안의 파일을 그대로 GitHub 저장소에 업로드합니다.
-2. Settings > Pages 에서 main / (root) 로 배포를 켭니다.
-3. 생성된 URL을 iPad Safari, iPad Chrome, Android Chrome에서 엽니다.
+- index.html
+- assets/ (이미지 및 GIF 파일)
+- .nojekyll
 
 중요
-- Apple 기기에서는 HTML 파일을 로컬로 직접 여는 것보다 URL로 여는 방식이 훨씬 안정적입니다.
-- 반드시 index.html 과 assets 폴더를 함께 올려야 합니다.
-- 파일명을 바꾸지 않는 것이 가장 안전합니다.
+- ZIP 파일 자체를 올리지 말고, 압축을 푼 뒤 이 폴더 안의 파일들을 그대로 GitHub 저장소 최상단에 업로드하세요.
+- index.html 과 assets 폴더가 같은 위치에 있어야 합니다.
+- 기존 GitHub Pages 주소를 유지하고 싶다면, 기존 저장소의 같은 위치에 이 파일들로 덮어쓰면 됩니다.
 
-수정 시 주의
-- index.html 안의 assets/ 경로를 임의로 바꾸면 이미지가 안 보일 수 있습니다.
-- 새 버전으로 교체할 때는 같은 저장소, 같은 index.html 경로를 유지하면 기존 GitHub Pages 주소를 그대로 쓸 수 있습니다.
+권장 Pages 설정
+- Branch: main
+- Folder: /(root)
+
+이번 배포용 버전에서 한 일
+- HTML 내부 base64 이미지/GIF를 assets 폴더로 분리
+- 모바일 메타 태그 추가
+- iPad/Safari/Android 대응을 위한 터치 보정 추가
+- 우측 '사용 방법' / '침입 경로' 패널의 sticky 동작 유지 보강
+- 태블릿 폭에서도 우측 패널이 우측에 유지되도록 반응형 기준 조정
+
+문제가 생기면 확인할 것
+1) index.html 이 저장소 최상단에 있는지
+2) assets 폴더가 함께 올라갔는지
+3) GitHub Pages 설정이 main / (root) 인지
+4) 브라우저에서 강력 새로고침했는지
